@@ -10,8 +10,8 @@ const HomePage = () => {
         <div className="container">
           <b>Təbiət Dostlarına xoş gəlmisiz</b>
           <h1>
-            Təbiət Dostları dünyanın minlərlə bölgəsində ətraf mühitin
-            mühafizəsində töhvə vermək məqsədi ilə fəaliyyətdədir.
+            TƏBİƏT DOSTLARI DÜNYANIN YÜZLƏRLƏ ÖLKƏSİNDƏ ƏTRAF MÜHİTİN
+            MÜHAFİZƏSİNDƏ TÖHVƏ VERMƏK MƏQSƏDİ İLƏ FƏALİYYƏTDƏDİR.  
           </h1>
         </div>
       </section>
