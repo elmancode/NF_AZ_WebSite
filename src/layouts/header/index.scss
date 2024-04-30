@@ -119,11 +119,13 @@ header {
         .socialMediaIcons {
             margin-top: 45px;
             display: flex;
-            gap: 15px;
+            gap: 20px;
 
             a {
-                img {
+                .socialIcons {
                     width: 20px;
+                    color: #FFFFFF;
+                    // gap: 20px;
                 }
             }
         }

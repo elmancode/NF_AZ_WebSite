@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import Logo from "../../assets/logo white.png";
 import hamburger_menu from "../../assets/icons/hamburger_menu.png";
-import facebook from "../../assets/icons/facebook.png";
-import twitter from "../../assets/icons/twitter.png";
-import behance from "../../assets/icons/behance.png";
-import instagram from "../../assets/icons/instagram.png";
+import { FaFacebookF } from "react-icons/fa";
+import { BsInstagram } from "react-icons/bs";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./index.scss";
@@ -99,37 +99,39 @@ const Header = () => {
             neque reprehenderit.
           </p>
 
+    
+
           <div className="socialMediaIcons">
             <a
-              href="http://facebook.com"
+              href="https://www.facebook.com/NatureFriends"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={facebook} alt="facebook" />
+              <FaFacebookF className="socialIcons" />
             </a>
 
             <a
-              href="http://facebook.com"
+              href="https://www.instagram.com/naturefriendsaz/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={instagram} alt="facebook" />
+              <BsInstagram className="socialIcons" />
             </a>
 
             <a
-              href="http://facebook.com"
+              href="https://www.facebook.com/NatureFriends"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={twitter} alt="facebook" />
+              <FaLinkedinIn className="socialIcons" />
             </a>
 
             <a
-              href="http://facebook.com"
+              href="https://www.facebook.com/NatureFriends"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={behance} alt="facebook" />
+              <FaTwitter className="socialIcons" />
             </a>
           </div>
         </div>
