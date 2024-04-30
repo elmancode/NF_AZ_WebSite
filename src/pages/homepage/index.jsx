@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 import "./index.scss";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-import facebook from "../../assets/icons/facebook.png";
-import twitter from "../../assets/icons/twitter.png";
-import behance from "../../assets/icons/behance.png";
-import instagram from "../../assets/icons/instagram.png";
+import { FaFacebookF } from "react-icons/fa";
+import { BsInstagram } from "react-icons/bs";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 
 const HomePage = () => {
   useEffect(() => {
@@ -31,48 +30,48 @@ const HomePage = () => {
         <div className="overlay"> </div>
 
         <div className="container" data-aos="fade-up">
-          <b>Təbiət Dostlarına xoş gəlmisiniz</b>
+          <b>TƏBİƏT DOSTLARINA XOŞ GƏLMİSİNİZ</b>
           <h1>
-            TƏBİƏT DOSTLARI DÜNYANIN YÜZLƏRLƏ ÖLKƏSİNDƏ ƏTRAF MÜHİTİN
-            MÜHAFİZƏSİNDƏ TÖHVƏ VERMƏK MƏQSƏDİ İLƏ FƏALİYYƏTDƏDİR.  
+            Təbiət Dostları dünyanın yüzlərlə ölkəsində ətraf mühitin
+            mühafizəsində töhvə vermək məqsədi ilə fəaliyyətdədir. 
           </h1>
         </div>
 
         <div className="socialMediaIcons">
           <a
-            href="http://facebook.com"
+            href="https://www.facebook.com/NatureFriends"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={facebook} alt="facebook" />
-            <p>facebook</p>
+            <FaFacebookF className="icons" />
+            <p>Facebook</p>
           </a>
 
           <a
-            href="http://facebook.com"
+            href="https://www.instagram.com/naturefriendsaz/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={instagram} alt="facebook" />
-            <p>twitter</p>
+            <BsInstagram className="icons" />
+            <p>Instagram</p>
           </a>
 
           <a
-            href="http://facebook.com"
+            href="https://www.facebook.com/NatureFriends"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={twitter} alt="facebook" />
-            <p>instagram</p>
+            <FaLinkedinIn className="icons" />
+            <p>LinkedinIn</p>
           </a>
 
           <a
-            href="http://facebook.com"
+            href="https://www.facebook.com/NatureFriends"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={behance} alt="facebook" />
-            <p>behance</p>
+            <FaTwitter className="icons" />
+            <p>Twitter</p>
           </a>
         </div>
       </section>
