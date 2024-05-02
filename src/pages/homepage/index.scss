@@ -197,11 +197,11 @@
         display: flex;
         flex-wrap: wrap;
         gap: 40px;
-        margin-top: 50px;
+        margin-top: 70px;
         justify-content: center;
 
         .card {
-          width: 45%;
+          width: 46%;
           display: flex;
           align-items: flex-start;
           gap: 20px;
@@ -225,6 +225,35 @@
               margin-top: 15px;
             }
           }
+        }
+      }
+    }
+  }
+
+  #section4 {
+    background-color: #111111;
+    padding: 100px 0 300px 0;
+
+    .container {
+      .head {
+        text-align: center;
+
+        h2 {
+          font-weight: 400;
+          font-size: 17px;
+          line-height: 22px;
+          color: #39b54a;
+        }
+
+        h1 {
+          font-weight: 400;
+          font-size: 52px;
+          color: #000000;
+          line-height: 62px;
+          max-width: 1000px;
+          margin: 0 auto;
+          padding-top: 30px;
+          color: #fff;
         }
       }
     }

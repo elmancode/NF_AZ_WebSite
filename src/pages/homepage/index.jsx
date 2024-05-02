@@ -14,6 +14,7 @@ import {
 import { BsInstagram } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import useScrollTriggeredCountUp from "../../companents/ScrollTriggetCountUp";
+import ImageGalleryComponent from "../../companents/imageGallery";
 
 const HomePage = () => {
   useEffect(() => {
@@ -219,6 +220,18 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="section4">
+        <div className="container">
+          <div className="head">
+            <h2>RECENT WORKS</h2>
+
+            <h1>We love what we do, check out some of our latest works</h1>
+          </div>
+
+          <ImageGalleryComponent />
         </div>
       </section>
     </div>

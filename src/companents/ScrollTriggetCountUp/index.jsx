@@ -7,12 +7,18 @@ const easeOutExpo = (t) => {
 const useScrollTriggeredCountUp = (ref, end, duration = 2000) => {
   const [count, setCount] = useState(0);
   const isCounting = useRef(false);
+  const prevScrollY = useRef(0);
   const frameRate = 1000 / 60;
   const totalFrames = Math.round(duration / frameRate);
 
   const handleScroll = useCallback(
     ([entry]) => {
-      if (entry.isIntersecting && !isCounting.current) {
+      const currentScrollY = window.scrollY;
+      if (
+        entry.isIntersecting &&
+        !isCounting.current &&
+        currentScrollY > prevScrollY.current
+      ) {
         isCounting.current = true;
         let frame = 0;
 
@@ -26,10 +32,8 @@ const useScrollTriggeredCountUp = (ref, end, duration = 2000) => {
             isCounting.current = false;
           }
         }, frameRate);
-      } else {
-        isCounting.current = false;
-        setCount(0);
       }
+      prevScrollY.current = currentScrollY;
     },
     [end, frameRate, totalFrames]
   );
