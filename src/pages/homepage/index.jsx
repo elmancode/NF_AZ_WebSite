@@ -15,6 +15,7 @@ import { BsInstagram } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import useScrollTriggeredCountUp from "../../companents/ScrollTriggetCountUp";
 import ImageGalleryComponent from "../../companents/imageGallery";
+import ContactUS from "../../companents/contactUS";
 
 const HomePage = () => {
   useEffect(() => {
@@ -101,10 +102,10 @@ const HomePage = () => {
         <div className="overlay"> </div>
 
         <div className="container">
-          <p>HELLO THERE</p>
-          <h1>We Are Glint</h1>
+          <p data-aos="fade-up">HELLO THERE</p>
+          <h1 data-aos="fade-up">We Are Glint</h1>
 
-          <p className="description">
+          <p className="description" data-aos="fade-up">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -143,7 +144,7 @@ const HomePage = () => {
 
       <section id="section3">
         <div className="container">
-          <div className="head">
+          <div className="head" data-aos="fade-up">
             <h2>WHAT WE DO</h2>
 
             <h1>
@@ -152,7 +153,7 @@ const HomePage = () => {
           </div>
 
           <div className="cards">
-            <div className="card">
+            <div className="card" data-aos="fade-right">
               <div className="">
                 <FaBrush className="icon" />
               </div>
@@ -169,7 +170,7 @@ const HomePage = () => {
               </div>
             </div>
 
-            <div className="card">
+            <div className="card" data-aos="fade-left">
               <div className="">
                 <FaBezierCurve className="icon" />
               </div>
@@ -186,7 +187,7 @@ const HomePage = () => {
               </div>
             </div>
 
-            <div className="card">
+            <div className="card" data-aos="fade-right">
               <div className="">
                 <FaBullhorn className="icon" />
               </div>
@@ -203,7 +204,7 @@ const HomePage = () => {
               </div>
             </div>
 
-            <div className="card">
+            <div className="card" data-aos="fade-left">
               <div className="">
                 <FaGlobe className="icon" />
               </div>
@@ -224,15 +225,23 @@ const HomePage = () => {
       </section>
 
       <section id="section4">
+        <div className="head" data-aos="fade-up">
+          <h2>RECENT WORKS</h2>
+
+          <h1>We love what we do, check out some of our latest works</h1>
+        </div>
+
         <div className="container">
-          <div className="head">
-            <h2>RECENT WORKS</h2>
-
-            <h1>We love what we do, check out some of our latest works</h1>
-          </div>
-
           <ImageGalleryComponent />
         </div>
+      </section>
+
+      <section id="section5" className="contactUS">
+        <div className="overlay"></div>
+        <div className="container">
+          <hr />
+        </div>
+        <ContactUS />
       </section>
     </div>
   );

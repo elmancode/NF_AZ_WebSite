@@ -4,10 +4,10 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/scss/lightgallery.scss";
 import "lightgallery/scss/lg-zoom.scss";
-
-import lgThumbnail from "lightgallery/plugins/thumbnail";
-import lgZoom from "lightgallery/plugins/zoom";
 import "./index.scss";
+import lgZoom from "lightgallery/plugins/zoom";
+import lgThumbnail from "lightgallery/plugins/thumbnail";
+import { FaLink } from "react-icons/fa";
 
 const Gallery = () => {
   return (
@@ -17,12 +17,14 @@ const Gallery = () => {
           <a
             href="https://preview.colorlib.com/theme/glint/images/portfolio/lady-shutterbug.jpg"
             className="grid-content"
+            data-aos="fade-up-right"
           >
             <img
               src="https://preview.colorlib.com/theme/glint/images/portfolio/lady-shutterbug.jpg"
               alt="Image 1"
             />
             <div className="overlay">
+              <FaLink className="link" />
               <p>+</p>
               <p className="text">SHUTTERBURG</p>
             </div>
@@ -31,12 +33,14 @@ const Gallery = () => {
           <a
             href="https://preview.colorlib.com/theme/glint/images/portfolio/the-beetle.jpg"
             className="grid-content"
+            data-aos="fade-up-right"
           >
             <img
               src="https://preview.colorlib.com/theme/glint/images/portfolio/the-beetle.jpg"
               alt="Image 3"
             />
             <div className="overlay">
+              <FaLink className="link" />
               <p>+</p>
               <p className="text">SHUTTERBURG</p>
             </div>
@@ -45,12 +49,14 @@ const Gallery = () => {
           <a
             href="https://preview.colorlib.com/theme/glint/images/portfolio/woodcraft.jpg"
             className="grid-content"
+            data-aos="fade-up-right"
           >
             <img
               src="https://preview.colorlib.com/theme/glint/images/portfolio/woodcraft.jpg"
               alt="Image 2"
             />
             <div className="overlay">
+              <FaLink className="link" />
               <p>+</p>
               <p className="text">SHUTTERBURG</p>
             </div>
@@ -59,12 +65,14 @@ const Gallery = () => {
           <a
             href="https://preview.colorlib.com/theme/glint/images/portfolio/grow-green.jpg"
             className="grid-content"
+            data-aos="fade-up-left"
           >
             <img
               src="https://preview.colorlib.com/theme/glint/images/portfolio/grow-green.jpg"
               alt="Image 2"
             />
             <div className="overlay">
+              <FaLink className="link" />
               <p>+</p>
               <p className="text">SHUTTERBURG</p>
             </div>
@@ -73,6 +81,7 @@ const Gallery = () => {
           <a
             href="https://preview.colorlib.com/theme/glint/images/portfolio/guitarist.jpg"
             className="grid-content"
+            data-aos="fade-up-left"
           >
             <img
               src="https://preview.colorlib.com/theme/glint/images/portfolio/guitarist.jpg"
@@ -80,6 +89,7 @@ const Gallery = () => {
             />
 
             <div className="overlay">
+              <FaLink className="link" />
               <p>+</p>
               <p className="text">SHUTTERBURG</p>
             </div>
@@ -88,6 +98,7 @@ const Gallery = () => {
           <a
             href="https://preview.colorlib.com/theme/glint/images/portfolio/palmeira.jpg"
             className="grid-content"
+            data-aos="fade-up-left"
           >
             <img
               src="https://preview.colorlib.com/theme/glint/images/portfolio/palmeira.jpg"
@@ -95,6 +106,7 @@ const Gallery = () => {
             />
 
             <div className="overlay">
+              <FaLink className="link" />
               <p>+</p>
               <p className="text">SHUTTERBURG</p>
             </div>

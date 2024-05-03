@@ -85,10 +85,10 @@ const Header = () => {
           </div>
 
           <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
+            <a href="#section1">Home</a>
+            <a href="#section2">About</a>
+            <a href="#section3">Services</a>
+            <a href="#section4">Contact</a>
             <a href="#">Works</a>
             <a href="#">Clients</a>
           </nav>
@@ -98,8 +98,6 @@ const Header = () => {
             porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis
             neque reprehenderit.
           </p>
-
-    
 
           <div className="socialMediaIcons">
             <a

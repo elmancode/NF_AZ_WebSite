@@ -1,0 +1,20 @@
+#backToTop {
+
+    button {
+        position: fixed;
+        bottom: 40px;
+        right: 60px;
+        padding: 10px;
+        background-color: black;
+        cursor: pointer;
+        transition: all 1s;
+        border-radius: 5px;
+        border: none;
+
+        .icon {
+            text-align: center;
+            font-size: 30px;
+            color: grey;
+        }
+    }
+}
