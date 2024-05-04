@@ -1,0 +1,110 @@
+#contactUs {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+
+    h3 {
+        color: white;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 1.6px;
+        font-size: 13px;
+        margin-bottom: 50px;
+    }
+
+    .left {
+        width: 65%;
+        background-color: rgba(0, 0, 0, 0.188);
+        padding: 50px;
+
+        form {
+            fieldset {
+                display: flex;
+                flex-direction: column;
+                border: none;
+
+                input,
+                textarea {
+                    background-color: transparent;
+                    outline: none;
+                    color: white !important;
+                    border: none;
+                    resize: none;
+                    color: rgba(255, 255, 255, 0.6);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+                    margin-bottom: .9rem;
+                    padding: 20px 0;
+                    transition: all 0.5s;
+
+                    &:focus {
+                        border-bottom: 1px solid #39b54a;
+                    }
+                }
+
+                button {
+                    background-color: #39b54a;
+                    cursor: pointer;
+                    padding: 15px 0;
+                    font-weight: 700;
+                    color: white;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    border: none;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        background-color: #399f47;
+                    }
+                }
+            }
+        }
+    }
+
+    .right {
+        width: 35%;
+        background-color: #121212;
+        padding: 50px;
+
+        p {
+            font-size: 15px;
+            color: grey;
+            line-height: 30px;
+            margin-top: 20px;
+
+            &.colored {
+                color: #39b54a;
+                line-height: 21px;
+                font-size: 16px;
+                margin-top: 60px;
+            }
+        }
+
+        .email,
+        .phone {
+            margin-top: 20px;
+
+            a {
+                text-decoration: none;
+                display: block;
+                color: grey;
+                margin-top: 5px;
+            }
+        }
+
+        .socialMediaIcons {
+            display: flex;
+            gap: 15px;
+            margin-top: 50px;
+
+            .icon {
+                font-size: 20px;
+                color: white;
+                transition: all 0.3s;
+
+                &:hover {
+                    color: #39b54a;
+                }
+            }
+        }
+    }
+}

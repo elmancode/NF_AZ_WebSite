@@ -1,6 +1,5 @@
-import MainRoot from "../companents/root";
+import MainRoot from "../components/root";
 import HomePage from "../pages/homepage";
-
 
 const ROUTES = [
   {
@@ -11,7 +10,6 @@ const ROUTES = [
         path: "",
         element: <HomePage />,
       },
-     
     ],
   },
 ];

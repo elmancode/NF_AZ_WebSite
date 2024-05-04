@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../layouts/header";
 import BackToTop from "../backToTop";
+import Footer from "../../layouts/footer";
 
 const MainRoot = () => {
   return (
@@ -9,6 +10,7 @@ const MainRoot = () => {
       <Header />
       <BackToTop />
       <Outlet />
+      <Footer />
     </>
   );
 };

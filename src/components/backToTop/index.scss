@@ -1,6 +1,7 @@
 #backToTop {
-
+    
     button {
+        z-index: 50;
         position: fixed;
         bottom: 40px;
         right: 60px;

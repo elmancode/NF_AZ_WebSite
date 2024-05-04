@@ -13,9 +13,9 @@ import {
 } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import useScrollTriggeredCountUp from "../../companents/ScrollTriggetCountUp";
-import ImageGalleryComponent from "../../companents/imageGallery";
-import ContactUS from "../../companents/contactUS";
+import useScrollTriggeredCountUp from "../../components/ScrollTriggetCountUp";
+import ImageGalleryComponent from "../../components/imageGallery";
+import ContactUS from "../../components/contactUS";
 
 const HomePage = () => {
   useEffect(() => {
@@ -43,10 +43,11 @@ const HomePage = () => {
   return (
     <div id="homePage">
       <section id="section1">
-        <div className="overlay"> </div>
+        <div className="overlay"></div>
 
         <div className="container" data-aos="fade-up">
           <b>TƏBİƏT DOSTLARINA XOŞ GƏLMİSİNİZ</b>
+
           <h1>
             Təbiət Dostları dünyanın yüzlərlə ölkəsində ətraf mühitin
             mühafizəsində töhvə vermək məqsədi ilə fəaliyyətdədir. 
@@ -237,11 +238,15 @@ const HomePage = () => {
       </section>
 
       <section id="section5" className="contactUS">
-        <div className="overlay"></div>
         <div className="container">
           <hr />
+          <div className="head">
+            <h2>CONTACT US</h2>
+            <h1>Reach out for a new project or just say hello</h1>
+          </div>
+
+          <ContactUS />
         </div>
-        <ContactUS />
       </section>
     </div>
   );

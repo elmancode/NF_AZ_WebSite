@@ -1,0 +1,79 @@
+footer {
+    background-color: #121212;
+    padding: 100px 0 50px 0;
+
+    .container {
+        display: flex;
+        gap: 80px;
+
+        p {
+            color: grey;
+            font-size: 15px;
+            line-height: 30px;
+        }
+
+        .left {
+            width: 50%;
+
+            h2 {
+                color: #39b54a;
+                margin-bottom: 30px;
+            }
+        }
+
+        .right {
+            width: 50%;
+
+            h3 {
+                color: white;
+                margin-bottom: 30px;
+            }
+
+            .subscribe {
+                margin-top: 40px;
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                form {
+                    width: 100%;
+
+                    input {
+                        padding: 15px 5px 15px 30px;
+                        outline: none;
+                        border: none;
+                        background: url('../../assets/icons/mail.png') no-repeat left;
+                        background-size: 20px;
+                        color: white;
+                        transition: all 0.5s;
+                        border-bottom: 1px solid grey;
+                        width: 70%;
+
+                        &:focus {
+                            border-bottom: 1px solid #39b54a;
+                        }
+                    }
+
+                    button {
+                        background-color: #39b54a;
+                        color: white;
+                        padding: 15px 40px;
+                        border: none;
+                        cursor: pointer;
+                        transition: all 0.3s;
+
+                        &:hover {
+                            background-color: #298736;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        text-align: center;
+        margin-top: 80px;
+        color: white;
+    }
+}
