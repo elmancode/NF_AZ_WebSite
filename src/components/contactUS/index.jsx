@@ -17,7 +17,7 @@ const ContactUS = () => {
   };
 
   return (
-    <div id="contactUs">
+    <div id="contactUs" data-aos="fade-up">
       <div className="left">
         <h3>SEND US A MESSAGE</h3>
 

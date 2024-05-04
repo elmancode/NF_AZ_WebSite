@@ -89,7 +89,7 @@ const Header = () => {
             <a href="#section2">About</a>
             <a href="#section3">Services</a>
             <a href="#section4">Contact</a>
-            <a href="#">Works</a>
+            <a href="#section5">Works</a>
             <a href="#">Clients</a>
           </nav>
 

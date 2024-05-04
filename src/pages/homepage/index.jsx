@@ -240,7 +240,7 @@ const HomePage = () => {
       <section id="section5" className="contactUS">
         <div className="container">
           <hr />
-          <div className="head">
+          <div className="head" data-aos="fade-up">
             <h2>CONTACT US</h2>
             <h1>Reach out for a new project or just say hello</h1>
           </div>
