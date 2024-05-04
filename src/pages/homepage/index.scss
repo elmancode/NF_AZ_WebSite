@@ -1,4 +1,6 @@
 #homePage {
+  overflow: hidden;
+
   #section1 {
     background-image: url("../../assets/coverphoto.jpg");
     width: 100%;
@@ -69,6 +71,10 @@
       flex-direction: column;
       gap: 25px;
 
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
+
       a {
         text-align: center;
         line-height: calc(35px - 4px);
@@ -102,11 +108,66 @@
         }
       }
     }
+
+    @media only screen and (max-width: 1240px) {
+      .container {
+        padding: 10px;
+      }
+    }
+
+    @media only screen and (max-width: 900px) {
+      .container {
+        h1 {
+          font-size: 40px !important;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .container {
+        h1 {
+          font-size: 30px !important;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .container {
+        h1 {
+          width: 100% !important;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 500px) {
+      height: 110vh;
+
+      .container {
+        h1 {
+          font-size: 25px !important;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 460px) {
+      .container {
+        padding-top: 50px;
+
+        h1 {
+          font-size: 20px !important;
+        }
+
+        .buttons {
+          margin-top: 50px;
+          flex-direction: column;
+        }
+      }
+    }
   }
 
   #section2 {
-    height: 120vh;
     background-color: #39b54a;
+    padding: 100px 0;
 
     .container {
       text-align: center;
@@ -161,6 +222,99 @@
             font-size: 18px;
             color: #000000;
             line-height: 24px;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1300px) {
+      .container {
+        .counts {
+          flex-wrap: wrap;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 900px) {
+      .container {
+        padding: 0 10px;
+
+        h1 {
+          font-size: 65px;
+        }
+
+        p {
+          font-size: 16px;
+        }
+
+        .counts {
+          margin-top: 10px;
+
+          hr {
+            display: none;
+          }
+
+          .count {
+
+            h2 {
+              font-size: 60px !important;
+            }
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 700px) {
+      padding: 60px 0;
+
+      .container {
+        h1 {
+          font-size: 50px;
+        }
+
+        p {
+          font-size: 14px;
+
+          &.description {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 530px) {
+      .container {
+        h1 {
+          font-size: 40px;
+        }
+
+        .description {
+          margin-top: 0px !important;
+        }
+
+        .counts {
+
+          .count {
+
+            h2 {
+              width: fit-content;
+            }
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 425px) {
+      .container {
+        .counts {
+          flex-direction: column;
+
+          .count {
+            text-align: center;
+
+            h2 {
+              width: 100%;
+            }
           }
         }
       }
@@ -228,10 +382,68 @@
         }
       }
     }
+
+    @media only screen and (max-width: 900px) {
+      .container {
+        padding: 0 10px;
+
+        .cards {
+          .card {
+            width: 45%;
+
+            .icon {
+              font-size: 35px;
+            }
+
+            .cardHead {
+              h2 {
+                font-size: 20px;
+              }
+
+              p {
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 670px) {
+      .container {
+        .head {
+          h1 {
+            font-size: 40px;
+          }
+        }
+
+        .cards {
+          flex-direction: column;
+
+          .card {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 500px) {
+      padding: 60px 0;
+
+      .container {
+        .head {
+          h1 {
+            font-size: 30px;
+            line-height: 40px;
+          }
+        }
+      }
+    }
   }
 
   #section4 {
     padding-bottom: 50px;
+    overflow: hidden;
 
     .head {
       padding: 150px 0 300px 0;
