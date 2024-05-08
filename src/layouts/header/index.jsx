@@ -86,12 +86,24 @@ const Header = () => {
           </div>
 
           <nav>
-            <Link to="/">Home</Link>
-            <Link to="about">About</Link>
-            <a href="/#section2">Services</a>
-            <a href="#section4">Contact</a>
-            <a href="#section5">Works</a>
-            <a href="#">Clients</a>
+            <Link to={"/"} onClick={() => setOpen(false)}>
+              Home
+            </Link>
+            <Link to={"about"} onClick={() => setOpen(false)}>
+              About
+            </Link>
+            <Link to={"projects"} onClick={() => setOpen(false)}>
+              Projects
+            </Link>
+            <Link to={"/structure"} onClick={() => setOpen(false)}>
+              Structure
+            </Link>
+            <Link to={"/uzvol"} onClick={() => setOpen(false)}>
+              To be Member
+            </Link>
+            <a href="#" onClick={() => setOpen(false)}>
+              Clients
+            </a>
           </nav>
 
           <p>
