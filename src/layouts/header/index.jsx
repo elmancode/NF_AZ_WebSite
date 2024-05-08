@@ -8,6 +8,7 @@ import { FaTwitter } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./index.scss";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [colorChange, setColorChange] = useState(false);
@@ -85,9 +86,9 @@ const Header = () => {
           </div>
 
           <nav>
-            <a href="#section1">Home</a>
-            <a href="#section2">About</a>
-            <a href="#section3">Services</a>
+            <Link to="/">Home</Link>
+            <Link to="about">About</Link>
+            <a href="/#section2">Services</a>
             <a href="#section4">Contact</a>
             <a href="#section5">Works</a>
             <a href="#">Clients</a>
