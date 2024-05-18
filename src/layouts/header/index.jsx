@@ -98,8 +98,8 @@ const Header = () => {
             <Link to={"/structure"} onClick={() => setOpen(false)}>
               Structure
             </Link>
-            <Link to={"/uzvol"} onClick={() => setOpen(false)}>
-              To be Member
+            <Link to={"/membership"} onClick={() => setOpen(false)}>
+              Membership
             </Link>
             <a href="#" onClick={() => setOpen(false)}>
               Clients

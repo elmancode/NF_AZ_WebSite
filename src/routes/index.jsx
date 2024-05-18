@@ -3,7 +3,7 @@ import AboutPage from "../pages/about";
 import HomePage from "../pages/homepage";
 import ProjectsPage from "../pages/projects";
 import StructurePage from "../pages/structure";
-import UzvOL from "../pages/uzvOL";
+import MemberShipPage from "../pages/memberShip";
 
 const ROUTES = [
   {
@@ -27,8 +27,8 @@ const ROUTES = [
         element: <StructurePage />,
       },
       {
-        path: "uzvol",
-        element: <UzvOL />,
+        path: "membership",
+        element: <MemberShipPage />,
       },
     ],
   },

@@ -1,0 +1,32 @@
+#memberShip {
+    background-color: rgb(219, 214, 214);
+
+    .container {
+        padding: 100px 0;
+
+        .headText {
+            margin-bottom: 60px;
+            text-align: center;
+
+            h4 {
+                margin-top: 15px;
+
+                a {
+                    color: black;
+                }
+            }
+        }
+
+        .handleReading {
+            background-color: #009c48;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 30px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    }
+}
