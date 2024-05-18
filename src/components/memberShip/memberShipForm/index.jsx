@@ -86,7 +86,7 @@ const MemberShipForm = () => {
             <p>
               Ad, Soyad <span>*</span>
             </p>
-            <Input placeholder="Ad, Soyad" />
+            <Input />
           </Form.Item>
 
           <Form.Item>
@@ -94,7 +94,7 @@ const MemberShipForm = () => {
               Doğum tarixi <span>*</span>
             </p>
 
-            <DatePicker placeholder="2002-05-20" />
+            <DatePicker placeholder="" />
           </Form.Item>
 
           <Form.Item>
