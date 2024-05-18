@@ -64,35 +64,32 @@ const Header = () => {
     <>
       <header data-aos="fade-down">
         <div className="header">
-        <div className="left" >
-        <Link to={"/"}>
-        <img src={Logo} alt="logo" />
+          <div className="left">
+            <Link to={"/üzvlük"}>
+              <img src={Logo} alt="logo" />
             </Link>
-       
-        </div>
+          </div>
 
-        <div className="right">
-          <nav>
-          <Link to={"/haqqımızda"} onClick={() => setOpen(false)}>
-              Haqqımızda
-            </Link>
-            <Link to={"/fəaliyyətlər"} onClick={() => setOpen(false)}>
-              Fəaliyyətlər
-            </Link>
-            <Link to={"/xəbərlər"} onClick={() => setOpen(false)}>
-              Xəbərlər
-            </Link>
-            <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
-              Üzvlük
-            </Link>
-            <Link to={"/əlaqə"} onClick={() => setOpen(false)}>
-              Əlaqə
-            </Link>
-          </nav>
+          <div className="right">
+            <nav>
+              <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
+                Haqqımızda
+              </Link>
+              <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
+                Fəaliyyətlər
+              </Link>
+              <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
+                Xəbərlər
+              </Link>
+              <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
+                Üzvlük
+              </Link>
+              <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
+                Əlaqə
+              </Link>
+            </nav>
+          </div>
         </div>
-
-        </div>
-      
 
         <div
           className={colorChange ? "mobile colorChange" : "mobile"}

@@ -79,7 +79,7 @@ const MemberShipForm = () => {
           }}
           {...formItemLayoutWithOutLabel}
           style={{
-            maxWidth: 1000,
+            maxWidth: 800,
           }}
         >
           <Form.Item>
@@ -87,8 +87,6 @@ const MemberShipForm = () => {
               Ad, Soyad <span>*</span>
             </p>
             <Input placeholder="Ad, Soyad" />
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -97,8 +95,6 @@ const MemberShipForm = () => {
             </p>
 
             <DatePicker placeholder="2002-05-20" />
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -107,8 +103,6 @@ const MemberShipForm = () => {
             </p>
 
             <Input />
-
-            <hr />
           </Form.Item>
 
           <Form.List
@@ -158,7 +152,6 @@ const MemberShipForm = () => {
                         onClick={() => remove(field.name)}
                       />
                     </Form.Item>
-                    <hr />
                   </Form.Item>
                 ))}
               </>
@@ -171,8 +164,6 @@ const MemberShipForm = () => {
             </p>
 
             <Input />
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -180,7 +171,6 @@ const MemberShipForm = () => {
               Ev ünvanı <span>*</span>
             </p>
             <Input />
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -189,8 +179,6 @@ const MemberShipForm = () => {
             </p>
 
             <Input />
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -233,8 +221,6 @@ const MemberShipForm = () => {
                 </div>
               </div>
             </div>
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -242,7 +228,6 @@ const MemberShipForm = () => {
               Təbiət Dostları haqqında necə məlumat aldınız? <span>*</span>
             </p>
             <TextArea rows={2} />
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -251,8 +236,6 @@ const MemberShipForm = () => {
               <span>*</span>
             </p>
             <TextArea rows={2} />
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -266,8 +249,6 @@ const MemberShipForm = () => {
               <Select.Option value="L">L</Select.Option>
               <Select.Option value="XL">XL</Select.Option>
             </Select>
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -275,8 +256,6 @@ const MemberShipForm = () => {
               Sevdiyiniz rəngi qeyd edin <span>*</span>
             </p>
             <Input />
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -285,8 +264,6 @@ const MemberShipForm = () => {
               qeyd edə bilərsiniz) <span>*</span>
             </p>
             <TextArea rows={2} />
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -295,8 +272,6 @@ const MemberShipForm = () => {
               bacarıqlarınız və ya istedadınız varmı? <span>*</span>
             </p>
             <TextArea rows={2} />
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -304,8 +279,6 @@ const MemberShipForm = () => {
               Başqa bizə bildirmək istədiyiniz bir şey varmı? <span>*</span>
             </p>
             <TextArea rows={2} />
-
-            <hr />
           </Form.Item>
 
           <Form.Item>
@@ -317,8 +290,6 @@ const MemberShipForm = () => {
               <Radio value="yes">Bəli</Radio>
               <Radio value="no">Xeyr</Radio>
             </Radio.Group>
-
-            <hr />
           </Form.Item>
 
           <Form.Item valuePropName="fileList" getValueFromEvent={normFile}>
