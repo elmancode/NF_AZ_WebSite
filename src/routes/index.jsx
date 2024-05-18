@@ -27,7 +27,7 @@ const ROUTES = [
         element: <StructurePage />,
       },
       {
-        path: "membership",
+        path: "üzvlük",
         element: <MemberShipPage />,
       },
     ],

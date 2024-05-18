@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Logo from "../../assets/logo white.png";
+import Logo from "../../assets/td logo 1.png";
 import hamburger_menu from "../../assets/icons/hamburger_menu.png";
 import { FaFacebookF } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
@@ -62,13 +62,40 @@ const Header = () => {
 
   return (
     <>
-      <header>
-        <div className="left" data-aos="fade-down">
-          <img src={Logo} alt="logo" />
+      <header data-aos="fade-down">
+        <div className="header">
+        <div className="left" >
+        <Link to={"/"}>
+        <img src={Logo} alt="logo" />
+            </Link>
+       
         </div>
 
+        <div className="right">
+          <nav>
+          <Link to={"/haqqımızda"} onClick={() => setOpen(false)}>
+              Haqqımızda
+            </Link>
+            <Link to={"/fəaliyyətlər"} onClick={() => setOpen(false)}>
+              Fəaliyyətlər
+            </Link>
+            <Link to={"/xəbərlər"} onClick={() => setOpen(false)}>
+              Xəbərlər
+            </Link>
+            <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
+              Üzvlük
+            </Link>
+            <Link to={"/əlaqə"} onClick={() => setOpen(false)}>
+              Əlaqə
+            </Link>
+          </nav>
+        </div>
+
+        </div>
+      
+
         <div
-          className={colorChange ? "right colorChange" : "right"}
+          className={colorChange ? "mobile colorChange" : "mobile"}
           onClick={() => setOpen(true)}
         >
           <p> MENU </p>

@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import useScrollTriggeredCountUp from "../../components/ScrollTriggetCountUp";
 import ImageGalleryComponent from "../../components/imageGallery";
 import ContactUS from "../../components/contactUS";
+import CarouselComponent from "../../components/carousel";
 
 const HomePage = () => {
   useEffect(() => {
@@ -45,7 +46,7 @@ const HomePage = () => {
       <section id="section1">
         <div className="overlay"></div>
 
-        <div className="container" data-aos="fade-up">
+        {/* <div className="container" data-aos="fade-up">
           <b>TƏBİƏT DOSTLARINA XOŞ GƏLMİSİNİZ</b>
 
           <h1>
@@ -57,7 +58,8 @@ const HomePage = () => {
             <Link to={"/"}>START A PROJECT</Link>
             <Link to={"/"}>MORE ABOUT US</Link>
           </div>
-        </div>
+        </div> */}
+        <CarouselComponent/>
 
         <div className="socialMediaIcons" data-aos="zoom-in-left">
           <a
@@ -96,7 +98,6 @@ const HomePage = () => {
             <p>Twitter</p>
           </a>
         </div>
-        <h1>salam</h1>
       </section>
 
       <section id="section2">

@@ -2,19 +2,39 @@ header {
     display: flex;
     justify-content: space-between;
     z-index: 3;
-    position: relative;
+    position: fixed;
+    width: 100%;
+ 
 
-    .left {
-
-        img {
-            position: absolute;
-            width: 50px;
-            left: 60px;
-            top: 30px;
+    .header{
+        // position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 70px;
+        align-items: center;
+        background-color: #fff;
+        .left {
+            img {
+                width: 55px;
+            }
+        }
+    
+        .right{
+            nav{
+                display: flex;
+                align-items: center;
+                gap: 50px;
+                font-size: 15px;
+                a{
+                    color: black;
+                }
+            }
         }
     }
+ 
 
-    .right {
+    .mobile {
         display: flex;
         align-items: center;
         gap: 15px;
@@ -25,6 +45,7 @@ header {
         color: #24a64a;
         transition: all 0.5s;
         padding: 8px 10px;
+        display: none;
 
         &.colorChange {
             background-color: black;
@@ -54,6 +75,7 @@ header {
     transform: translateX(100%);
     transition: opacity 0.3s ease, all 0.5s ease;
     pointer-events: none;
+ 
 
     &.open {
         visibility: visible;
