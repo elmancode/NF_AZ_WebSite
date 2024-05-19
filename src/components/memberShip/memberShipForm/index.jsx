@@ -15,41 +15,40 @@ import axios from "axios";
 
 const MemberShipForm = () => {
   const { TextArea } = Input;
-  const [formValues, setFormValues] = useState({
-    fullName: "",
-    dateOfBirth: null,
-    email: "",
-    socialMediaURLS: [],
-    phoneNumber: "",
-    address: "",
-    occupation: "",
-    languages: [],
-    tShirtSize: "",
-    favoriteColor: "",
-  });
 
-  const handleLanguageChange = (language, level, checked) => {
+  const [fullName, setFullName] = useState("");
+  const [address, setAddress] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [email, setEmail] = useState("");
+  const [socialMediaURLS, setSocialMediaURLS] = useState([]);
+
+  const [phoneNumber, setPhoneNumber] = useState(0);
+  const [occupation, setOccupation] = useState("");
+  const [language, setLanguage] = useState([]);
+  const [state1, setState1] = useState("");
+  const [state2, setState2] = useState("");
+  const [tshirtSize, setTshirtSize] = useState("");
+  const [state3, setState3] = useState("");
+  const [state4, setState4] = useState("");
+  const [favoriteColor, setFavoriteColor] = useState("");
+  const [state5, setState5] = useState("");
+  const [frontOfLicence, setFrontOfLicence] = useState(null);
+  const [backOfLicence, setBackOfLicence] = useState(null);
+  const [emailSubscribtion, setEmailSubscribtion] = useState(false);
+
+  const handleLanguageChange = (selectedLanguage, level, checked) => {
     if (checked) {
-      setFormValues({
-        ...formValues,
-        languages: [...formValues.languages, `${language} - ${level}`],
-      });
+      setLanguage([...language, `${selectedLanguage} - ${level}`]);
     } else {
-      const updatedLanguages = formValues.languages.filter(
-        (lang) => lang !== `${language} - ${level}`
+      const updatedLanguages = language.filter(
+        (lang) => lang !== `${selectedLanguage} - ${level}`
       );
-      setFormValues({
-        ...formValues,
-        languages: updatedLanguages,
-      });
+      setLanguage(updatedLanguages);
     }
   };
 
   const tshirtSizeChange = (value) => {
-    setFormValues({
-      ...formValues,
-      tShirtSize: value,
-    });
+    setTshirtSize(value);
   };
 
   const normFile = (e) => {
@@ -72,9 +71,41 @@ const MemberShipForm = () => {
     },
   };
 
+  const handleFileChange = (info) => {
+    if (info.file.status === "done") {
+      const uploadedFileUrl = info.file.response.url;
+
+      if (backOfLicence) {
+        setFrontOfLicence(uploadedFileUrl);
+      } else {
+        setBackOfLicence(uploadedFileUrl);
+        setFrontOfLicence(uploadedFileUrl);
+      }
+    }
+  };
+
   const handleFinish = async () => {
     try {
-      const { data } = await axios.post("http://localhost:3000/memberShip");
+      const { data } = await axios.post("http://localhost:3000/memberShip", {
+        fullName: fullName,
+        address: address,
+        dateOfBirth: birthday,
+        phoneNumber: +phoneNumber,
+        occupation: occupation,
+        languages: language,
+        email: email,
+        socialNetworkAccounts: socialMediaURLS,
+        state1: state1,
+        state2: state2,
+        state3: state3,
+        state4: state4,
+        state5: state5,
+        tShirtSize: tshirtSize,
+        favoriteColor: favoriteColor,
+        backOfLicence: backOfLicence,
+        frontOfLicence: frontOfLicence,
+        emailSubscription: emailSubscribtion,
+      });
 
       console.log(data);
     } catch (error) {
@@ -82,16 +113,6 @@ const MemberShipForm = () => {
     }
   };
 
-  const [fileUrl, setFileUrl] = useState(null);
-
-  const handleFileChange = (info) => {
-    if (info.file.status === "done") {
-      const uploadedFileUrl = info.file.response.url;
-
-      setFileUrl(uploadedFileUrl);
-    }
-  };
-  console.log(formValues?.socialMediaURLS);
   return (
     <div id="memberShipForm">
       <div className="content">
@@ -112,14 +133,7 @@ const MemberShipForm = () => {
             <p>
               Ad, Soyad <span>*</span>
             </p>
-            <Input
-              onChange={(e) => {
-                setFormValues({
-                  ...formValues,
-                  ["fullName"]: e?.target?.value,
-                });
-              }}
-            />
+            <Input onChange={(e) => setFullName(e?.target.value)} />
           </Form.Item>
 
           {/* dogum tarixi */}
@@ -129,14 +143,8 @@ const MemberShipForm = () => {
             </p>
 
             <DatePicker
-              placeholder=""
-              onChange={(e) => {
-                console.log(e);
-                setFormValues({
-                  ...formValues,
-                  ["dateOfBirth"]: e?.target?.value,
-                });
-              }}
+              placeholder="2024-05-19"
+              onChange={(date, dateString) => setBirthday(dateString)}
             />
           </Form.Item>
 
@@ -146,14 +154,7 @@ const MemberShipForm = () => {
               Elektron poçt ünvanı <span>*</span>
             </p>
 
-            <Input
-              onChange={(e) => {
-                setFormValues({
-                  ...formValues,
-                  ["email"]: e?.target?.value,
-                });
-              }}
-            />
+            <Input onChange={(e) => setEmail(e.target.value)} />
           </Form.Item>
 
           {/* social media url's */}
@@ -199,13 +200,13 @@ const MemberShipForm = () => {
                           width: "97%",
                         }}
                         onChange={(e) => {
-                          const newSocialMediaURLS = [
-                            ...formValues.socialMediaURLS,
-                          ];
-                          newSocialMediaURLS[index] = e.target.value;
-                          setFormValues({
-                            ...formValues,
-                            socialMediaURLS: newSocialMediaURLS,
+                          const newValue = e.target.value;
+                          setSocialMediaURLS((prevSocialMediaURLS) => {
+                            const updatedSocialMediaURLS = [
+                              ...prevSocialMediaURLS,
+                            ];
+                            updatedSocialMediaURLS[index] = newValue;
+                            return updatedSocialMediaURLS;
                           });
                         }}
                       />{" "}
@@ -226,14 +227,7 @@ const MemberShipForm = () => {
               Mobil nömrə <span>*</span>
             </p>
 
-            <Input
-              onChange={(e) => {
-                setFormValues({
-                  ...formValues,
-                  ["phoneNumber"]: e?.target?.value,
-                });
-              }}
-            />
+            <Input onChange={(e) => setPhoneNumber(e.target.value)} />
           </Form.Item>
 
           {/* ev unvani */}
@@ -241,14 +235,7 @@ const MemberShipForm = () => {
             <p>
               Ev ünvanı <span>*</span>
             </p>
-            <Input
-              onChange={(e) => {
-                setFormValues({
-                  ...formValues,
-                  ["address"]: e?.target?.value,
-                });
-              }}
-            />
+            <Input onChange={(e) => setAddress(e.target.value)} />
           </Form.Item>
 
           {/* is saheniz */}
@@ -257,14 +244,7 @@ const MemberShipForm = () => {
               İş sahəniz <span>*</span>
             </p>
 
-            <Input
-              onChange={(e) => {
-                setFormValues({
-                  ...formValues,
-                  ["occupation"]: e?.target?.value,
-                });
-              }}
-            />
+            <Input onChange={(e) => setOccupation(e.target.value)} />
           </Form.Item>
 
           {/* language */}
@@ -407,28 +387,22 @@ const MemberShipForm = () => {
           </Form.Item>
 
           {/* Təbiət Dostları haqqında necə məlumat aldınız? */}
+          {/* state 1 */}
           <Form.Item>
             <p>
               Təbiət Dostları haqqında necə məlumat aldınız? <span>*</span>
             </p>
-            <TextArea
-              rows={2}
-              // onChange={(e) => {
-              //   setFormValues({
-              //     ...formValues,
-              //     ["occupation"]: e?.target?.value,
-              //   });
-              // }}
-            />
+            <TextArea rows={2} onChange={(e) => setState1(e.target.value)} />
           </Form.Item>
 
           {/* Təşkilatın üzvü olmağa maraqlı olmanızın səbəbi nədir? */}
+          {/* state 2 */}
           <Form.Item>
             <p>
               Təşkilatın üzvü olmağa maraqlı olmanızın səbəbi nədir?
               <span>*</span>
             </p>
-            <TextArea rows={2} />
+            <TextArea rows={2} onChange={(e) => setState2(e.target.value)} />
           </Form.Item>
 
           {/* Köynək ölçünüzü qeyd edin */}
@@ -450,41 +424,37 @@ const MemberShipForm = () => {
             <p>
               Sevdiyiniz rəngi qeyd edin <span>*</span>
             </p>
-            <Input
-              onChange={(e) => {
-                setFormValues({
-                  ...formValues,
-                  ["favoriteColor"]: e?.target?.value,
-                });
-              }}
-            />
+            <Input onChange={(e) => setFavoriteColor(e.target.value)} />
           </Form.Item>
 
           {/* Təbiətdə ən çox bəyəndiyiniz heyvanın adını yazın */}
+          {/* state 3 */}
           <Form.Item>
             <p>
               Təbiətdə ən çox bəyəndiyiniz heyvanın adını yazın (səbəbini də
               qeyd edə bilərsiniz) <span>*</span>
             </p>
-            <TextArea rows={2} />
+            <TextArea rows={2} onChange={(e) => setState3(e.target.value)} />
           </Form.Item>
 
           {/* Təbiət Dostları təşkilatına töhfə verə biləcəyiniz xüsusi
               bacarıqlarınız və ya istedadınız varmı? */}
+          {/* state 4 */}
           <Form.Item>
             <p>
               Təbiət Dostları təşkilatına töhfə verə biləcəyiniz xüsusi
               bacarıqlarınız və ya istedadınız varmı? <span>*</span>
             </p>
-            <TextArea rows={2} />
+            <TextArea rows={2} onChange={(e) => setState4(e.target.value)} />
           </Form.Item>
 
           {/* Başqa bizə bildirmək istədiyiniz bir şey varmı? */}
+          {/* state 5 */}
           <Form.Item>
             <p>
               Başqa bizə bildirmək istədiyiniz bir şey varmı? <span>*</span>
             </p>
-            <TextArea rows={2} />
+            <TextArea rows={2} onChange={(e) => setState5(e.target.value)} />
           </Form.Item>
 
           {/* Təbiət Dostları haqqında yenilik və xəbərləri e-poçt vasitəsilə
@@ -494,7 +464,9 @@ const MemberShipForm = () => {
               Təbiət Dostları haqqında yenilik və xəbərləri e-poçt vasitəsilə
               almaq istəyirsinizmi? <span>*</span>
             </p>
-            <Radio.Group>
+            <Radio.Group
+              onChange={(e) => setEmailSubscribtion(e?.target.value)}
+            >
               <Radio value="yes">Bəli</Radio>
               <Radio value="no">Xeyr</Radio>
             </Radio.Group>
