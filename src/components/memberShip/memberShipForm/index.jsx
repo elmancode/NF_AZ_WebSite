@@ -1,57 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.scss";
 import {
   Button,
-  Cascader,
   Checkbox,
-  ColorPicker,
   DatePicker,
   Form,
   Input,
-  InputNumber,
   Radio,
   Select,
-  Slider,
-  Switch,
-  TreeSelect,
   Upload,
-  Card,
-  Space,
-  Typography,
 } from "antd";
-import {
-  PlusOutlined,
-  CloseOutlined,
-  MinusCircleOutlined,
-} from "@ant-design/icons";
+import { PlusOutlined, MinusCircleOutlined } from "@ant-design/icons";
+import axios from "axios";
 
 const MemberShipForm = () => {
   const { TextArea } = Input;
+  const [formValues, setFormValues] = useState({
+    fullName: "",
+    dateOfBirth: null,
+    email: "",
+    socialMediaURLS: [],
+    phoneNumber: "",
+    address: "",
+    occupation: "",
+    languages: [],
+    tShirtSize: "",
+    favoriteColor: "",
+  });
+
+  const handleLanguageChange = (language, level, checked) => {
+    if (checked) {
+      setFormValues({
+        ...formValues,
+        languages: [...formValues.languages, `${language} - ${level}`],
+      });
+    } else {
+      const updatedLanguages = formValues.languages.filter(
+        (lang) => lang !== `${language} - ${level}`
+      );
+      setFormValues({
+        ...formValues,
+        languages: updatedLanguages,
+      });
+    }
+  };
+
+  const tshirtSizeChange = (value) => {
+    setFormValues({
+      ...formValues,
+      tShirtSize: value,
+    });
+  };
 
   const normFile = (e) => {
     if (Array.isArray(e)) {
       return e;
     }
     return e?.fileList;
-  };
-
-  const formItemLayout = {
-    labelCol: {
-      xs: {
-        span: 24,
-      },
-      sm: {
-        span: 4,
-      },
-    },
-    wrapperCol: {
-      xs: {
-        span: 24,
-      },
-      sm: {
-        span: 20,
-      },
-    },
   };
 
   const formItemLayoutWithOutLabel = {
@@ -65,6 +70,63 @@ const MemberShipForm = () => {
         offset: 4,
       },
     },
+  };
+
+  const customRequestHandler = ({ file, fielderName, onSuccess }) => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      setFormValues({
+        ...formValues,
+        frontOfLicence: file,
+      });
+      console.log(fielderName);
+      onSuccess("ok", file);
+    } catch (error) {
+      console.error("Dosya yüklenirken bir hata oluştu:", error);
+    }
+  };
+
+  const handleFinish = async () => {
+    try {
+      const formData = new FormData();
+
+      Object.entries(formValues).forEach(([key, value]) => {
+        if (Array.isArray(value)) {
+          value.forEach((item) => {
+            formData.append(key, item);
+          });
+        } else {
+          formData.append(key, value);
+        }
+      });
+
+      if (formValues.frontOfLicence && formValues.frontOfLicence.length > 0) {
+        formData.append(
+          "frontOfLicence",
+          formValues.frontOfLicence[0].originFileObj
+        );
+      }
+      if (formValues.backOfLicence && formValues.backOfLicence.length > 0) {
+        formData.append(
+          "backOfLicence",
+          formValues.backOfLicence[0].originFileObj
+        );
+      }
+
+      console.log(formData);
+
+      // await axios.post("http://localhost:3000/memberShip", formData, {
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      // });
+
+      // alert("Form başarıyla gönderildi!");
+    } catch (error) {
+      console.error("Form gönderilirken hata oluştu:", error);
+      alert("Form gönderilirken hata oluştu.");
+    }
   };
 
   return (
@@ -82,29 +144,56 @@ const MemberShipForm = () => {
             maxWidth: 800,
           }}
         >
+          {/* ad soyad */}
           <Form.Item>
             <p>
               Ad, Soyad <span>*</span>
             </p>
-            <Input />
+            <Input
+              onChange={(e) => {
+                setFormValues({
+                  ...formValues,
+                  ["fullName"]: e?.target?.value,
+                });
+              }}
+            />
           </Form.Item>
 
+          {/* dogum tarixi */}
           <Form.Item>
             <p>
               Doğum tarixi <span>*</span>
             </p>
 
-            <DatePicker placeholder="" />
+            <DatePicker
+              placeholder=""
+              onChange={(e) => {
+                console.log(e);
+                setFormValues({
+                  ...formValues,
+                  ["dateOfBirth"]: e?.target?.value,
+                });
+              }}
+            />
           </Form.Item>
 
+          {/* email */}
           <Form.Item>
             <p>
               Elektron poçt ünvanı <span>*</span>
             </p>
 
-            <Input />
+            <Input
+              onChange={(e) => {
+                setFormValues({
+                  ...formValues,
+                  ["email"]: e?.target?.value,
+                });
+              }}
+            />
           </Form.Item>
 
+          {/* social media url's */}
           <Form.List
             name="SocialMediaURLS"
             rules={[
@@ -146,6 +235,15 @@ const MemberShipForm = () => {
                         style={{
                           width: "97%",
                         }}
+                        onChange={(e) => {
+                          setFormValues({
+                            ...formValues,
+                            socialMediaURLS: [
+                              ...formValues.socialMediaURLS,
+                              e?.target?.value,
+                            ],
+                          });
+                        }}
                       />{" "}
                       <MinusCircleOutlined
                         className="dynamic-delete-button"
@@ -158,29 +256,54 @@ const MemberShipForm = () => {
             )}
           </Form.List>
 
+          {/* mobil nomre */}
           <Form.Item>
             <p>
               Mobil nömrə <span>*</span>
             </p>
 
-            <Input />
+            <Input
+              onChange={(e) => {
+                setFormValues({
+                  ...formValues,
+                  ["phoneNumber"]: e?.target?.value,
+                });
+              }}
+            />
           </Form.Item>
 
+          {/* ev unvani */}
           <Form.Item>
             <p>
               Ev ünvanı <span>*</span>
             </p>
-            <Input />
+            <Input
+              onChange={(e) => {
+                setFormValues({
+                  ...formValues,
+                  ["address"]: e?.target?.value,
+                });
+              }}
+            />
           </Form.Item>
 
+          {/* is saheniz */}
           <Form.Item>
             <p>
               İş sahəniz <span>*</span>
             </p>
 
-            <Input />
+            <Input
+              onChange={(e) => {
+                setFormValues({
+                  ...formValues,
+                  ["occupation"]: e?.target?.value,
+                });
+              }}
+            />
           </Form.Item>
 
+          {/* language */}
           <Form.Item>
             <p>
               Bildiyiniz dillər
@@ -198,38 +321,144 @@ const MemberShipForm = () => {
               <div className="header">
                 <div>
                   <p>Elementar</p>
-                  <Checkbox />
-                  <Checkbox />
-                  <Checkbox />
-                  <Checkbox />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "Azərbaycan",
+                        "Elementar",
+                        e.target.checked
+                      )
+                    }
+                  />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "English",
+                        "Elementar",
+                        e.target.checked
+                      )
+                    }
+                  />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "Deutsch",
+                        "Elementar",
+                        e.target.checked
+                      )
+                    }
+                  />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "Русский",
+                        "Elementar",
+                        e.target.checked
+                      )
+                    }
+                  />
                 </div>
 
                 <div>
                   <p>Orta səviyyə</p>
-                  <Checkbox />
-                  <Checkbox />
-                  <Checkbox />
-                  <Checkbox />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "Azərbaycan",
+                        "Orta səviyyə",
+                        e.target.checked
+                      )
+                    }
+                  />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "English",
+                        "Orta səviyyə",
+                        e.target.checked
+                      )
+                    }
+                  />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "Deutsch",
+                        "Orta səviyyə",
+                        e.target.checked
+                      )
+                    }
+                  />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "Русский",
+                        "Orta səviyyə",
+                        e.target.checked
+                      )
+                    }
+                  />
                 </div>
 
                 <div>
                   <p>Profesional</p>
-                  <Checkbox />
-                  <Checkbox />
-                  <Checkbox />
-                  <Checkbox />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "Azərbaycan",
+                        "Profesional",
+                        e.target.checked
+                      )
+                    }
+                  />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "English",
+                        "Profesional",
+                        e.target.checked
+                      )
+                    }
+                  />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "Deutsch",
+                        "Profesional",
+                        e.target.checked
+                      )
+                    }
+                  />
+                  <Checkbox
+                    onChange={(e) =>
+                      handleLanguageChange(
+                        "Русский",
+                        "Profesional",
+                        e.target.checked
+                      )
+                    }
+                  />
                 </div>
               </div>
             </div>
           </Form.Item>
 
+          {/* Təbiət Dostları haqqında necə məlumat aldınız? */}
           <Form.Item>
             <p>
               Təbiət Dostları haqqında necə məlumat aldınız? <span>*</span>
             </p>
-            <TextArea rows={2} />
+            <TextArea
+              rows={2}
+              // onChange={(e) => {
+              //   setFormValues({
+              //     ...formValues,
+              //     ["occupation"]: e?.target?.value,
+              //   });
+              // }}
+            />
           </Form.Item>
 
+          {/* Təşkilatın üzvü olmağa maraqlı olmanızın səbəbi nədir? */}
           <Form.Item>
             <p>
               Təşkilatın üzvü olmağa maraqlı olmanızın səbəbi nədir?
@@ -238,11 +467,12 @@ const MemberShipForm = () => {
             <TextArea rows={2} />
           </Form.Item>
 
+          {/* Köynək ölçünüzü qeyd edin */}
           <Form.Item>
             <p>
               Köynək ölçünüzü qeyd edin <span>*</span>
             </p>
-            <Select>
+            <Select onChange={tshirtSizeChange}>
               <Select.Option value="XS">XS</Select.Option>
               <Select.Option value="S">S</Select.Option>
               <Select.Option value="M">M</Select.Option>
@@ -251,13 +481,22 @@ const MemberShipForm = () => {
             </Select>
           </Form.Item>
 
+          {/* Sevdiyiniz rəngi qeyd edin */}
           <Form.Item>
             <p>
               Sevdiyiniz rəngi qeyd edin <span>*</span>
             </p>
-            <Input />
+            <Input
+              onChange={(e) => {
+                setFormValues({
+                  ...formValues,
+                  ["favoriteColor"]: e?.target?.value,
+                });
+              }}
+            />
           </Form.Item>
 
+          {/* Təbiətdə ən çox bəyəndiyiniz heyvanın adını yazın */}
           <Form.Item>
             <p>
               Təbiətdə ən çox bəyəndiyiniz heyvanın adını yazın (səbəbini də
@@ -266,6 +505,8 @@ const MemberShipForm = () => {
             <TextArea rows={2} />
           </Form.Item>
 
+          {/* Təbiət Dostları təşkilatına töhfə verə biləcəyiniz xüsusi
+              bacarıqlarınız və ya istedadınız varmı? */}
           <Form.Item>
             <p>
               Təbiət Dostları təşkilatına töhfə verə biləcəyiniz xüsusi
@@ -274,6 +515,7 @@ const MemberShipForm = () => {
             <TextArea rows={2} />
           </Form.Item>
 
+          {/* Başqa bizə bildirmək istədiyiniz bir şey varmı? */}
           <Form.Item>
             <p>
               Başqa bizə bildirmək istədiyiniz bir şey varmı? <span>*</span>
@@ -281,6 +523,8 @@ const MemberShipForm = () => {
             <TextArea rows={2} />
           </Form.Item>
 
+          {/* Təbiət Dostları haqqında yenilik və xəbərləri e-poçt vasitəsilə
+              almaq istəyirsinizmi? */}
           <Form.Item>
             <p>
               Təbiət Dostları haqqında yenilik və xəbərləri e-poçt vasitəsilə
@@ -292,15 +536,20 @@ const MemberShipForm = () => {
             </Radio.Group>
           </Form.Item>
 
+          {/* vesiqe sekilleri */}
           <Form.Item valuePropName="fileList" getValueFromEvent={normFile}>
             <p>
               Qeydiyyatı tamamlamaq üçün şəxsiyyət vəsiqənizin hər iki üzünü ya
               şəkil (məs: .png, .jpg) ya sənəd (məs: .pdf) formatında yükləyin{" "}
               <span>*</span>
             </p>
-
             <div className="uploadsInput">
-              <Upload action="/upload.do" listType="picture-card">
+              <Upload
+                maxCount={1}
+                action="http://localhost:3000/upload"
+                listType="picture-card"
+                name="file"
+              >
                 <button
                   style={{
                     border: 0,
@@ -319,7 +568,12 @@ const MemberShipForm = () => {
                 </button>
               </Upload>
 
-              <Upload action="/upload.do" listType="picture-card">
+              <Upload
+                maxCount={1}
+                action="http://localhost:3000/upload"
+                listType="picture-card"
+                name="file"
+              >
                 <button
                   style={{
                     border: 0,
@@ -338,6 +592,12 @@ const MemberShipForm = () => {
                 </button>
               </Upload>
             </div>
+          </Form.Item>
+
+          <Form.Item>
+            <Button type="primary" onClick={handleFinish}>
+              Submit
+            </Button>
           </Form.Item>
         </Form>
       </div>
