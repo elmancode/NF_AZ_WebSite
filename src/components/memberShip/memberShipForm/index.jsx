@@ -339,13 +339,6 @@ const MemberShipForm = () => {
               </Upload>
             </div>
           </Form.Item>
-
-          <Form.Item>
-            <div className="buttons">
-              <button>Geri</button>
-              <button className="success">Təqdim edin</button>
-            </div>
-          </Form.Item>
         </Form>
       </div>
     </div>

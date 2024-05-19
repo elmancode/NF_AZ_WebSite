@@ -4,7 +4,7 @@
         padding: 70px 0;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-        
+
         .language {
             display: flex;
             align-items: flex-end;
@@ -48,29 +48,6 @@
 
         hr {
             margin-top: 15px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            margin-top: 20px;
-
-            button {
-                border: none;
-                cursor: pointer;
-                padding: 8px 20px;
-                color: #24a64a;
-                font-size: 14px;
-                font-weight: 600;
-                cursor: pointer;
-                border-radius: 5px;
-
-                &.success {
-                    color: white;
-                    background-color: #009c48;
-                }
-            }
         }
     }
 }

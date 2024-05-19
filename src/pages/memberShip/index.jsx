@@ -7,7 +7,7 @@ const MemberShipPage = () => {
   const [reading, setReading] = useState(false);
 
   const handleReading = () => {
-    setReading(true);
+    setReading(!reading);
     window.scrollTo({ top: 100, left: 100, behavior: "smooth" });
   };
 
@@ -27,7 +27,13 @@ const MemberShipPage = () => {
         </div>
 
         {reading ? (
-          <MemberShipForm />
+          <>
+            <MemberShipForm />
+            <div className="buttons">
+              <button onClick={handleReading}>Geri</button>
+              <button className="success">Təqdim edin</button>
+            </div>
+          </>
         ) : (
           <>
             <MemberShipAboutPage />
