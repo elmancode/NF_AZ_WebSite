@@ -72,21 +72,6 @@ const MemberShipForm = () => {
     },
   };
 
-  const customRequestHandler = ({ file, fielderName, onSuccess }) => {
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      setFormValues({
-        ...formValues,
-        frontOfLicence: file,
-      });
-      console.log(fielderName);
-      onSuccess("ok", file);
-    } catch (error) {
-      console.error("Dosya yüklenirken bir hata oluştu:", error);
-    }
-  };
-
   const handleFinish = async () => {
     try {
       const formData = new FormData();
@@ -121,11 +106,18 @@ const MemberShipForm = () => {
       //     "Content-Type": "multipart/form-data",
       //   },
       // });
-
-      // alert("Form başarıyla gönderildi!");
     } catch (error) {
-      console.error("Form gönderilirken hata oluştu:", error);
-      alert("Form gönderilirken hata oluştu.");
+      console.error("error:", error);
+    }
+  };
+
+  const [fileUrl, setFileUrl] = useState(null);
+
+  const handleFileChange = (info) => {
+    if (info.file.status === "done") {
+      const uploadedFileUrl = info.file.response.url;
+
+      setFileUrl(uploadedFileUrl);
     }
   };
 
@@ -549,7 +541,7 @@ const MemberShipForm = () => {
                 action="http://localhost:3000/upload"
                 listType="picture-card"
                 name="file"
-                previewFile={"http://localhost:3000/upload"}
+                onChange={handleFileChange}
               >
                 <button
                   style={{
