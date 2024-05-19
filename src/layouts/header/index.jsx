@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Logo from "../../assets/td logo 1.png";
+import { GiHamburgerMenu } from "react-icons/gi";
 import hamburger_menu from "../../assets/icons/hamburger_menu.png";
 import { FaFacebookF } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
@@ -91,86 +92,84 @@ const Header = () => {
           </div>
         </div>
 
-        <div
-          className={colorChange ? "mobile colorChange" : "mobile"}
-          onClick={() => setOpen(true)}
-        >
-          <p> MENU </p>
-          <img src={hamburger_menu} alt="menu" />
+        <div className={"mobile"} onClick={() => setOpen(true)}>
+          {/* <p> MENU </p> */}
+          <GiHamburgerMenu />
         </div>
-      </header>
 
-      <div id="drawer" className={open ? "open" : "closed"} ref={drawerRef}>
-        <div className={open ? "drawerContent  open" : "drawerContent closed"}>
-          <div className="head">
-            <h4>NAVIGATION</h4>
-            <div className="closeIcon" onClick={() => setOpen(false)}>
-              x
+        <div id="drawer" className={open ? "open" : "closed"} ref={drawerRef}>
+          <div
+            className={open ? "drawerContent  open" : "drawerContent closed"}
+          >
+            <div className="head">
+              <h4>MENU</h4>
+              <div className="closeIcon" onClick={() => setOpen(false)}>
+                x
+              </div>
+            </div>
+
+            <nav>
+              <Link to={"/"} onClick={() => setOpen(false)}>
+                Haqqımızda
+              </Link>
+              <Link to={"about"} onClick={() => setOpen(false)}>
+                Fəaliyyətlər
+              </Link>
+              <Link to={"projects"} onClick={() => setOpen(false)}>
+                Xəbərlər
+              </Link>
+              <Link to={"/structure"} onClick={() => setOpen(false)}>
+                Üzvlük
+              </Link>
+              <Link to={"/membership"} onClick={() => setOpen(false)}>
+                Əlaqə
+              </Link>
+              <a href="#" onClick={() => setOpen(false)}>
+                Donate
+              </a>
+            </nav>
+
+            <p>
+              Təbiət Dostları ətraf mühitin mühafizəsi və eko turizmin inkişafı
+              üçün fəaliyyətdədir.
+            </p>
+
+            <div className="socialMediaIcons">
+              <a
+                href="https://www.facebook.com/NatureFriends"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebookF className="socialIcons" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/naturefriendsaz/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BsInstagram className="socialIcons" />
+              </a>
+
+              <a
+                href="https://www.facebook.com/NatureFriends"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedinIn className="socialIcons" />
+              </a>
+
+              <a
+                href="https://www.facebook.com/NatureFriends"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter className="socialIcons" />
+              </a>
             </div>
           </div>
-
-          <nav>
-            <Link to={"/"} onClick={() => setOpen(false)}>
-              Home
-            </Link>
-            <Link to={"about"} onClick={() => setOpen(false)}>
-              About
-            </Link>
-            <Link to={"projects"} onClick={() => setOpen(false)}>
-              Projects
-            </Link>
-            <Link to={"/structure"} onClick={() => setOpen(false)}>
-              Structure
-            </Link>
-            <Link to={"/membership"} onClick={() => setOpen(false)}>
-              Membership
-            </Link>
-            <a href="#" onClick={() => setOpen(false)}>
-              Clients
-            </a>
-          </nav>
-
-          <p>
-            Perspiciatis hic praesentium nesciunt. Et neque a dolorum voluptatem
-            porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis
-            neque reprehenderit.
-          </p>
-
-          <div className="socialMediaIcons">
-            <a
-              href="https://www.facebook.com/NatureFriends"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebookF className="socialIcons" />
-            </a>
-
-            <a
-              href="https://www.instagram.com/naturefriendsaz/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <BsInstagram className="socialIcons" />
-            </a>
-
-            <a
-              href="https://www.facebook.com/NatureFriends"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedinIn className="socialIcons" />
-            </a>
-
-            <a
-              href="https://www.facebook.com/NatureFriends"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTwitter className="socialIcons" />
-            </a>
-          </div>
         </div>
-      </div>
+      </header>
     </>
   );
 };

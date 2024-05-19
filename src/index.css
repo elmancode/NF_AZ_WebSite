@@ -7,8 +7,16 @@
   font-family: "Poppins", sans-serif;
   text-decoration: none;
 }
+ 
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+
+@media (max-width: 600px) {
+
+}
+
+

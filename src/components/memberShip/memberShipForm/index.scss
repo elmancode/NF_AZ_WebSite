@@ -22,7 +22,7 @@
 
             .header {
                 display: flex;
-                gap: 80px;
+                gap: 100px;
                 align-items: center;
                 justify-content: center;
 
@@ -62,5 +62,13 @@
             color: white;
             background-color: #009c48;
         }
+    }
+
+    @media (max-width: 600px) {
+
+        .header{
+            gap: 50px !important;
+        }
+
     }
 }

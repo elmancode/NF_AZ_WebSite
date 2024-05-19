@@ -264,7 +264,7 @@ const MemberShipForm = () => {
 
               <div className="header">
                 <div>
-                  <p>Elementar</p>
+                  <p>Zəif</p>
                   <Checkbox
                     onChange={(e) =>
                       handleLanguageChange(
@@ -304,7 +304,7 @@ const MemberShipForm = () => {
                 </div>
 
                 <div>
-                  <p>Orta səviyyə</p>
+                  <p>Orta</p>
                   <Checkbox
                     onChange={(e) =>
                       handleLanguageChange(
@@ -344,7 +344,7 @@ const MemberShipForm = () => {
                 </div>
 
                 <div>
-                  <p>Profesional</p>
+                  <p>Yaxşı</p>
                   <Checkbox
                     onChange={(e) =>
                       handleLanguageChange(
