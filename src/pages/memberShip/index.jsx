@@ -31,7 +31,6 @@ const MemberShipPage = () => {
             <MemberShipForm />
             <div className="buttons">
               <button onClick={handleReading}>Geri</button>
-              <button className="success">Təqdim edin</button>
             </div>
           </>
         ) : (

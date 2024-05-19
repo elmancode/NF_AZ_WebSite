@@ -533,9 +533,9 @@ const MemberShipForm = () => {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" onClick={handleFinish}>
-              Submit
-            </Button>
+            <button className="success" onClick={handleFinish}>
+              Təqdim edin
+            </button>
           </Form.Item>
         </Form>
       </div>

@@ -49,5 +49,18 @@
         hr {
             margin-top: 15px;
         }
+
+        .success {
+            border: none;
+            cursor: pointer;
+            padding: 8px 20px;
+            color: #24a64a;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+            color: white;
+            background-color: #009c48;
+        }
     }
 }
