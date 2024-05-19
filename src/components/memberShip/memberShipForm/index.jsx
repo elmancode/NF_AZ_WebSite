@@ -549,6 +549,7 @@ const MemberShipForm = () => {
                 action="http://localhost:3000/upload"
                 listType="picture-card"
                 name="file"
+                previewFile={"http://localhost:3000/upload"}
               >
                 <button
                   style={{
