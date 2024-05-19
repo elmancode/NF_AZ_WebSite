@@ -74,38 +74,9 @@ const MemberShipForm = () => {
 
   const handleFinish = async () => {
     try {
-      const formData = new FormData();
+      const { data } = await axios.post("http://localhost:3000/memberShip");
 
-      Object.entries(formValues).forEach(([key, value]) => {
-        if (Array.isArray(value)) {
-          value.forEach((item) => {
-            formData.append(key, item);
-          });
-        } else {
-          formData.append(key, value);
-        }
-      });
-
-      if (formValues.frontOfLicence && formValues.frontOfLicence.length > 0) {
-        formData.append(
-          "frontOfLicence",
-          formValues.frontOfLicence[0].originFileObj
-        );
-      }
-      if (formValues.backOfLicence && formValues.backOfLicence.length > 0) {
-        formData.append(
-          "backOfLicence",
-          formValues.backOfLicence[0].originFileObj
-        );
-      }
-
-      console.log(formData);
-
-      // await axios.post("http://localhost:3000/memberShip", formData, {
-      //   headers: {
-      //     "Content-Type": "multipart/form-data",
-      //   },
-      // });
+      console.log(data);
     } catch (error) {
       console.error("error:", error);
     }
@@ -120,7 +91,7 @@ const MemberShipForm = () => {
       setFileUrl(uploadedFileUrl);
     }
   };
-
+  console.log(formValues?.socialMediaURLS);
   return (
     <div id="memberShipForm">
       <div className="content">
@@ -215,7 +186,7 @@ const MemberShipForm = () => {
                   </Button>
                 </Form.Item>
 
-                {fields.map((field) => (
+                {fields.map((field, index) => (
                   <Form.Item
                     {...formItemLayoutWithOutLabel}
                     required={false}
@@ -228,12 +199,13 @@ const MemberShipForm = () => {
                           width: "97%",
                         }}
                         onChange={(e) => {
+                          const newSocialMediaURLS = [
+                            ...formValues.socialMediaURLS,
+                          ];
+                          newSocialMediaURLS[index] = e.target.value;
                           setFormValues({
                             ...formValues,
-                            socialMediaURLS: [
-                              ...formValues.socialMediaURLS,
-                              e?.target?.value,
-                            ],
+                            socialMediaURLS: newSocialMediaURLS,
                           });
                         }}
                       />{" "}
@@ -566,6 +538,7 @@ const MemberShipForm = () => {
                 action="http://localhost:3000/upload"
                 listType="picture-card"
                 name="file"
+                onChange={handleFileChange}
               >
                 <button
                   style={{
