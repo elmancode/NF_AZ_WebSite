@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Logo from "../../assets/td logo 1.png";
 import { GiHamburgerMenu } from "react-icons/gi";
-import hamburger_menu from "../../assets/icons/hamburger_menu.png";
 import { FaFacebookF } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -109,19 +108,19 @@ const Header = () => {
             </div>
 
             <nav>
-              <Link to={"/"} onClick={() => setOpen(false)}>
+              <Link to={"/üzvlük"}  onClick={() => setOpen(false)}>
                 Haqqımızda
               </Link>
-              <Link to={"about"} onClick={() => setOpen(false)}>
+              <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
                 Fəaliyyətlər
               </Link>
-              <Link to={"projects"} onClick={() => setOpen(false)}>
+              <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
                 Xəbərlər
               </Link>
-              <Link to={"/structure"} onClick={() => setOpen(false)}>
+              <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
                 Üzvlük
               </Link>
-              <Link to={"/membership"} onClick={() => setOpen(false)}>
+              <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
                 Əlaqə
               </Link>
               <a href="#" onClick={() => setOpen(false)}>
