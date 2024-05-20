@@ -43,7 +43,7 @@ const MemberShipForm = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const [result, setResult] = useState(true);
+  const [result, setResult] = useState(false);
 
   const handleLanguageChange = (selectedLanguage, level, checked) => {
     if (checked) {
@@ -145,12 +145,6 @@ const MemberShipForm = () => {
             status="success"
             title="Qeydiyyatınız Uğurla Tamamlandı!"
             subTitle="Dəyərli Təbiət Dostu qısa zamanda sənə geri dönüş edəcəyik"
-            // extra={[
-            //   <Button type="primary" key="console">
-            //     Go Console
-            //   </Button>,
-            //   <Button key="buy">Buy Again</Button>,
-            // ]}
           />
         ) : (
           <Form
