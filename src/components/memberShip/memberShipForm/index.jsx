@@ -12,6 +12,8 @@ import {
 } from "antd";
 import { PlusOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import axios from "axios";
+import { BASE_URL } from "../../../constants";
+import { memberShipFormValidation } from "../../../validation/memberShipFormValidation";
 
 const MemberShipForm = () => {
   const { TextArea } = Input;
@@ -21,7 +23,6 @@ const MemberShipForm = () => {
   const [birthday, setBirthday] = useState("");
   const [email, setEmail] = useState("");
   const [socialMediaURLS, setSocialMediaURLS] = useState([]);
-
   const [phoneNumber, setPhoneNumber] = useState(0);
   const [occupation, setOccupation] = useState("");
   const [language, setLanguage] = useState([]);
@@ -35,6 +36,8 @@ const MemberShipForm = () => {
   const [frontOfLicence, setFrontOfLicence] = useState(null);
   const [backOfLicence, setBackOfLicence] = useState(null);
   const [emailSubscribtion, setEmailSubscribtion] = useState(false);
+
+  const [validationError, setValidationError] = useState(null);
 
   const handleLanguageChange = (selectedLanguage, level, checked) => {
     if (checked) {
@@ -86,7 +89,7 @@ const MemberShipForm = () => {
 
   const handleFinish = async () => {
     try {
-      const { data } = await axios.post("http://localhost:3000/memberShip", {
+      const memberShipData = {
         fullName: fullName,
         address: address,
         dateOfBirth: birthday,
@@ -105,7 +108,19 @@ const MemberShipForm = () => {
         backOfLicence: backOfLicence,
         frontOfLicence: frontOfLicence,
         emailSubscription: emailSubscribtion,
-      });
+      };
+
+      const validationError = memberShipFormValidation(memberShipData);
+      if (validationError) {
+        console.error(validationError);
+        setValidationError(validationError);
+        return;
+      }
+
+      const { data } = await axios.post(
+        `${BASE_URL}/memberShip`,
+        memberShipData
+      );
 
       console.log(data);
     } catch (error) {
@@ -134,6 +149,10 @@ const MemberShipForm = () => {
               Ad, Soyad <span>*</span>
             </p>
             <Input onChange={(e) => setFullName(e?.target.value)} />
+
+            {validationError?.index === 0 ? (
+              <p className="errorText">{validationError?.error}</p>
+            ) : null}
           </Form.Item>
 
           {/* dogum tarixi */}
@@ -146,6 +165,10 @@ const MemberShipForm = () => {
               placeholder="2024-05-19"
               onChange={(date, dateString) => setBirthday(dateString)}
             />
+
+            {validationError?.index === 1 ? (
+              <p className="errorText">{validationError?.error}</p>
+            ) : null}
           </Form.Item>
 
           {/* email */}
@@ -155,6 +178,10 @@ const MemberShipForm = () => {
             </p>
 
             <Input onChange={(e) => setEmail(e.target.value)} />
+
+            {validationError?.index === 2 ? (
+              <p className="errorText">{validationError?.error}</p>
+            ) : null}
           </Form.Item>
 
           {/* social media url's */}
@@ -195,10 +222,8 @@ const MemberShipForm = () => {
                   >
                     <Form.Item {...field}>
                       <Input
+                        className="socialMediaInput"
                         placeholder="Sosial media hesabının linki"
-                        style={{
-                          width: "97%",
-                        }}
                         onChange={(e) => {
                           const newValue = e.target.value;
                           setSocialMediaURLS((prevSocialMediaURLS) => {
@@ -227,7 +252,14 @@ const MemberShipForm = () => {
               Mobil nömrə <span>*</span>
             </p>
 
-            <Input onChange={(e) => setPhoneNumber(e.target.value)} />
+            <Input
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              type="number"
+            />
+
+            {validationError?.index === 3 ? (
+              <p className="errorText">{validationError?.error}</p>
+            ) : null}
           </Form.Item>
 
           {/* ev unvani */}
@@ -236,6 +268,10 @@ const MemberShipForm = () => {
               Ev ünvanı <span>*</span>
             </p>
             <Input onChange={(e) => setAddress(e.target.value)} />
+
+            {validationError?.index === 4 ? (
+              <p className="errorText">{validationError?.error}</p>
+            ) : null}
           </Form.Item>
 
           {/* is saheniz */}
@@ -245,6 +281,10 @@ const MemberShipForm = () => {
             </p>
 
             <Input onChange={(e) => setOccupation(e.target.value)} />
+
+            {validationError?.index === 5 ? (
+              <p className="errorText">{validationError?.error}</p>
+            ) : null}
           </Form.Item>
 
           {/* language */}
@@ -417,6 +457,10 @@ const MemberShipForm = () => {
               <Select.Option value="L">L</Select.Option>
               <Select.Option value="XL">XL</Select.Option>
             </Select>
+
+            {validationError?.index === 6 ? (
+              <p className="errorText">{validationError?.error}</p>
+            ) : null}
           </Form.Item>
 
           {/* Sevdiyiniz rəngi qeyd edin */}
@@ -425,6 +469,10 @@ const MemberShipForm = () => {
               Sevdiyiniz rəngi qeyd edin <span>*</span>
             </p>
             <Input onChange={(e) => setFavoriteColor(e.target.value)} />
+
+            {validationError?.index === 7 ? (
+              <p className="errorText">{validationError?.error}</p>
+            ) : null}
           </Form.Item>
 
           {/* Təbiətdə ən çox bəyəndiyiniz heyvanın adını yazın */}
@@ -479,6 +527,7 @@ const MemberShipForm = () => {
               şəkil (məs: .png, .jpg) ya sənəd (məs: .pdf) formatında yükləyin{" "}
               <span>*</span>
             </p>
+
             <div className="uploadsInput">
               <Upload
                 maxCount={1}
@@ -504,6 +553,9 @@ const MemberShipForm = () => {
                   </div>
                 </button>
               </Upload>
+              {validationError?.index === 8 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
 
               <Upload
                 maxCount={1}
@@ -529,6 +581,9 @@ const MemberShipForm = () => {
                   </div>
                 </button>
               </Upload>
+              {validationError?.index === 9 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
             </div>
           </Form.Item>
 

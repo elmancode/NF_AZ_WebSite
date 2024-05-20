@@ -6,6 +6,11 @@
         border-bottom-right-radius: 10px;
         margin: 0 20px;
 
+        .errorText {
+            color: red;
+            margin-top: 10px;
+        }
+
         .language {
             display: flex;
             align-items: flex-end;
@@ -63,6 +68,10 @@
             color: white;
             background-color: #009c48;
         }
+
+        .socialMediaInput {
+            width: 95%;
+        }
     }
 
     @media only screen and (max-width: 900px) {
@@ -70,6 +79,11 @@
 
             .ant-form-horizontal {
                 width: 80%;
+
+                .socialMediaInput {
+                    margin-left: 100px;
+                    width: 80%;
+                }
 
                 .ant-form-item {
                     margin-left: -100px !important;
@@ -93,6 +107,11 @@
     @media only screen and (max-width: 800px) {
         .content {
             padding: 70px 0 30px 0 !important;
+
+            .socialMediaInput {
+                margin-left: 70px !important;
+                width: 80%;
+            }
 
             .ant-form-horizontal {
                 .ant-form-item {
@@ -141,6 +160,10 @@
         .content {
             margin: 0 10px;
 
+            .socialMediaInput {
+                width: 75% !important;
+            }
+
             .ant-form-horizontal {
                 max-width: 97%;
                 margin-left: 100px !important;
@@ -162,6 +185,11 @@
                 p {
                     margin-left: 0px !important;
                 }
+
+            }
+
+            .socialMediaInput {
+                width: 70% !important;
             }
 
             .language {

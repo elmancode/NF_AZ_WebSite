@@ -11,26 +11,26 @@ import "./index.scss";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [colorChange, setColorChange] = useState(false);
+  // const [colorChange, setColorChange] = useState(false);
   const [open, setOpen] = useState(false);
   const drawerRef = useRef(null);
 
   const scrollThreshold = 150;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollPos = window.scrollY;
 
-      if (currentScrollPos >= scrollThreshold) {
-        setColorChange(true);
-      } else {
-        setColorChange(false);
-      }
-    };
+  //     if (currentScrollPos >= scrollThreshold) {
+  //       setColorChange(true);
+  //     } else {
+  //       setColorChange(false);
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -92,7 +92,6 @@ const Header = () => {
         </div>
 
         <div className={"mobile"} onClick={() => setOpen(true)}>
-          {/* <p> MENU </p> */}
           <GiHamburgerMenu />
         </div>
 
@@ -108,7 +107,7 @@ const Header = () => {
             </div>
 
             <nav>
-              <Link to={"/üzvlük"}  onClick={() => setOpen(false)}>
+              <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
                 Haqqımızda
               </Link>
               <Link to={"/üzvlük"} onClick={() => setOpen(false)}>
