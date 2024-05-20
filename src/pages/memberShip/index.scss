@@ -13,9 +13,10 @@
         .headText {
             text-align: center;
             background-color: #FFFFFF;
-            padding-top: 60px;
+            padding: 60px 10px 0 10px;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
+            margin: 0 20px;
 
             h4 {
                 margin-top: 15px;
@@ -34,9 +35,9 @@
             padding: 8px 20px;
             font-size: 14px;
             font-weight: 600;
-            margin-top: 30px;
             cursor: pointer;
             border-radius: 5px;
+            margin: 30px 20px 0 20px;
         }
 
         .buttons {
@@ -58,6 +59,45 @@
                 &.success {
                     color: white;
                     background-color: #009c48;
+                }
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+            padding: 150px 0 150px 0;
+
+            .headText {
+                h4 {
+                    font-size: 13px;
+                }
+
+                h1 {
+                    font-size: 22px;
+                    padding: 0 10px;
+                }
+            }
+
+            .handleReading {
+                font-size: 13px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            padding: 140px 0 120px 0;
+
+            .headText {
+                margin: 0 10px;
+                padding: 40px 10px 0 10px;
+
+                h4 {
+
+                    a {
+                        display: block;
+                    }
+                }
+
+                h1 {
+                    font-size: 18px;
                 }
             }
         }
