@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import useScrollTriggeredCountUp from "../../components/ScrollTriggetCountUp";
 import ImageGalleryComponent from "../../components/imageGallery";
 import ContactUS from "../../components/contactUS";
+import CarouselComponent from "../../components/carousel";
 // import CarouselComponent from "../../components/carousel";
 
 const HomePage = () => {
@@ -44,7 +45,7 @@ const HomePage = () => {
   return (
     <div id="homePage">
       <section id="section1">
-        <div className="overlay"></div>
+        {/* <div className="overlay"></div>
 
         <div className="container" data-aos="fade-up">
           <b>TƏBİƏT DOSTLARINA XOŞ GƏLMİSİNİZ</b>
@@ -58,8 +59,8 @@ const HomePage = () => {
             <Link to={"/"}>START A PROJECT</Link>
             <Link to={"/"}>MORE ABOUT US</Link>
           </div>
-        </div>
-        {/* <CarouselComponent/> */}
+        </div> */}
+        <CarouselComponent />
 
         <div className="socialMediaIcons" data-aos="zoom-in-left">
           <a
@@ -86,7 +87,7 @@ const HomePage = () => {
             rel="noopener noreferrer"
           >
             <FaLinkedinIn className="icons" />
-            <p>LinkedinIn</p>
+            <p>LinkedIn</p>
           </a>
 
           <a

@@ -39,6 +39,8 @@ const MemberShipForm = () => {
 
   const [validationError, setValidationError] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+
   const handleLanguageChange = (selectedLanguage, level, checked) => {
     if (checked) {
       setLanguage([...language, `${selectedLanguage} - ${level}`]);
@@ -116,15 +118,17 @@ const MemberShipForm = () => {
         setValidationError(validationError);
         return;
       }
-
+      setLoading(true);
       const { data } = await axios.post(
         `${BASE_URL}/memberShip`,
         memberShipData
       );
 
       console.log(data);
+      setLoading(false);
     } catch (error) {
       console.error("error:", error);
+      setLoading(false);
     }
   };
 
@@ -265,7 +269,10 @@ const MemberShipForm = () => {
           {/* ev unvani */}
           <Form.Item>
             <p>
-              Ev ünvanı <span>*</span>
+              Ünvan <span>*</span> <br />
+              <small>
+                <em>(Təşkilat tərəfindən çatdırılma üçün istifadə ediləcək)</em>
+              </small>
             </p>
             <Input onChange={(e) => setAddress(e.target.value)} />
 

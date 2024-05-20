@@ -4,29 +4,42 @@ import "./index.scss";
 import { Link } from "react-router-dom";
 
 const CarouselComponent = ({ data }) => {
-  const onChange = (currentSlide) => {};
+  const staticData = [
+    {
+      coverImage:
+        "https://naturefriendsazerbaijan.org/assets/coverphoto-B9PG9wgl.jpg",
+      text: "Təbiət Dostları dünyanın yüzlərlə ölkəsində ətraf mühitin mühafizəsində töhvə vermək məqsədi ilə fəaliyyətdədir.",
+      headText: "TƏBİƏT DOSTLARINA XOŞ GƏLMİSİNİZ",
+    },
+    {
+      coverImage:
+        "https://naturefriendsazerbaijan.org/assets/coverphoto-B9PG9wgl.jpg",
+      text: "Təbiət Dostları dünyanın yüzlərlə ölkəsində ətraf mühitin mühafizəsində töhvə vermək məqsədi ilə fəaliyyətdədir.",
+      headText: "TƏBİƏT DOSTLARINA XOŞ GƏLMİSİNİZ 2",
+    },
+    {
+      coverImage:
+        "https://naturefriendsazerbaijan.org/assets/coverphoto-B9PG9wgl.jpg",
+      text: "Təbiət Dostları dünyanın yüzlərlə ölkəsində ətraf mühitin mühafizəsində töhvə vermək məqsədi ilə fəaliyyətdədir.",
+      headText: "TƏBİƏT DOSTLARINA XOŞ GƏLMİSİNİZ 3",
+    },
+  ];
 
   return (
     <div id="carousel" className="carousel">
-      <Carousel afterChange={onChange} autoplay>
-        {data?.map((e, i) => {
+      <Carousel autoplay autoplaySpeed={3000} effect="scrollx">
+        {staticData?.map((e, i) => {
           return (
             <div className="cover" key={e?._id}>
-              <Link
-                to={`/xeberler/${e?._id}`}
-                style={{ backgroundColor: "red" }}
-              >
+              <Link to={`/`}>
                 <img
-                  src={`https://udpobackend-production.up.railway.app/images/${e?.coverImage}`}
-                  alt={e?.name}
+                  src={`${e?.coverImage}`}
+                  alt={i}
                   className="carouselImage"
                 />
                 <div className="carouselContent">
-                  <p>
-                    {e?.name?.length > 50
-                      ? e?.name?.slice(0, 50) + " " + "...."
-                      : e?.name}
-                  </p>
+                  <p className="headText">{e?.headText}</p>
+                  <h1>{e?.text}</h1>
                 </div>
               </Link>
             </div>

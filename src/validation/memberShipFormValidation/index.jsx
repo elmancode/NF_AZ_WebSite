@@ -1,9 +1,9 @@
 export const memberShipFormValidation = (data) => {
-  if (!data.fullName || data.fullName.length < 4) {
+  if (!data.fullName || data.fullName.trim().length < 4) {
     window.scrollTo({ top: 150, left: 0, behavior: "smooth" });
 
     return {
-      error: "Ad 4 simvoldan kiçikdir.",
+      error: "Adınızı daxil edin",
       index: 0,
     };
   }
