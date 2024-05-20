@@ -55,10 +55,10 @@
                 font-weight: 600;
                 cursor: pointer;
                 border-radius: 5px;
+                margin: 0 20px;
 
-                &.success {
-                    color: white;
-                    background-color: #009c48;
+                @media only screen and (max-width: 500px) {
+                    margin: 0 10px;
                 }
             }
         }

@@ -4,6 +4,7 @@
         padding: 70px 0;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+        margin: 0 20px;
 
         .language {
             display: flex;
@@ -64,11 +65,74 @@
         }
     }
 
-    @media (max-width: 600px) {
+    @media only screen and (max-width: 900px) {
+        .content {
 
-        .header{
-            gap: 50px !important;
+            .css-dev-only-do-not-override-1r287do {
+                max-width: 90%;
+                margin-left: 10px !important;
+
+                p {
+                    margin-left: 10px !important;
+                }
+            }
+
+            .language {
+                gap: 80px;
+
+                .header {
+                    gap: 70px;
+                }
+            }
         }
+    }
 
+    @media only screen and (max-width: 600px) {
+        .content {
+            .css-dev-only-do-not-override-1r287do {
+                max-width: 95%;
+                margin-left: 10px !important;
+
+                p {
+                    margin-left: 10px !important;
+                }
+            }
+
+            .language {
+                gap: 50px;
+
+                .header {
+                    gap: 50px;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        .content {
+            margin: 0 10px;
+
+            .css-dev-only-do-not-override-1r287do {
+                max-width: 97%;
+                margin-left: 5px !important;
+
+                p {
+                    margin-left: 5px !important;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 412px) {
+        .content {
+
+            .language {
+                gap: 30px;
+
+                .header {
+                    gap: 40px;
+                }
+            }
+        }
     }
 }
