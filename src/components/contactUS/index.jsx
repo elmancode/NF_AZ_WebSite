@@ -19,7 +19,7 @@ const ContactUS = () => {
   return (
     <div id="contactUs" data-aos="fade-up">
       <div className="left">
-        <h3>SEND US A MESSAGE</h3>
+        <h3>BİZƏ MESAJ GÖNDƏRİN</h3>
 
         <form onSubmit={handleSubmit}>
           <fieldset>
@@ -27,21 +27,21 @@ const ContactUS = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Your Name"
+              placeholder="Adın"
             />
 
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your Email"
+              placeholder="Emailin"
             />
 
             <input
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Subject"
+              placeholder="Mövzu"
             />
 
             <textarea
@@ -49,31 +49,30 @@ const ContactUS = () => {
               onChange={(e) => setMessage(e.target.value)}
               cols="30"
               rows="10"
-              placeholder="Your Message"
+              placeholder="Mesajın"
             ></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit">Göndər</button>
           </fieldset>
         </form>
       </div>
 
       <div className="right">
-        <h3>CONTACT INFO</h3>
+        <h3>KONTAkT INFO</h3>
 
-        <p className="colored">Where to Find Us</p>
-        <p>1600 Amphitheatre Parkway Mountain View, CA 94043 US</p>
+        <p className="colored">Bizi Hardan Tapa Bilərsən</p>
+        <p>Sosial Şəbəkələrdən və ya zənglə</p>
 
-        <p className="colored">Email Us At</p>
+        <p className="colored">Bizə email göndər</p>
         <div className="email">
-          <a href="mailto:elmanasgarov@gmail.com">elmanasgarov@gmail.com</a>
-          <a href="mailto:elmanasgarov@gmail.com">info@gmail.com</a>
+          <a href="info@naturefriendsazerbaijan.org"> info@naturefriendsazerbaijan.org</a>
+          <a href="naturefriendsazerbaijanv@gmail.com">naturefriendsazerbaijanv@gmail.com</a>
         </div>
 
-        <p className="colored">Call Us At</p>
+        <p className="colored">Zəng et və ya yaz </p>
         <div className="phone">
-          <a href="tel:+994503134473">Phone: (+994) 50 313 4473</a>
-          <a href="tel:+994503134473">Mobile: (+994) 50 313 4473</a>
-          <a href="tel:+994503134473">Fax: (+994) 50 313 4473</a>
+          <a href="tel:+994515984130">Phone: (+994) 51 598 4130</a>
+          <a href="tel:+994515984130">Whatsapp: (+994) 51 598 4130</a>
         </div>
 
         <div className="socialMediaIcons">

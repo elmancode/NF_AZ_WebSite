@@ -13,6 +13,10 @@ import {
 } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { MdEventAvailable } from "react-icons/md";
+import { MdDirectionsBike } from "react-icons/md";
+import { FaHiking } from "react-icons/fa";
+import { GiEcology } from "react-icons/gi";
 import useScrollTriggeredCountUp from "../../components/ScrollTriggetCountUp";
 import ImageGalleryComponent from "../../components/imageGallery";
 import ContactUS from "../../components/contactUS";
@@ -45,21 +49,6 @@ const HomePage = () => {
   return (
     <div id="homePage">
       <section id="section1">
-        {/* <div className="overlay"></div>
-
-        <div className="container" data-aos="fade-up">
-          <b>TƏBİƏT DOSTLARINA XOŞ GƏLMİSİNİZ</b>
-
-          <h1>
-            Təbiət Dostları dünyanın yüzlərlə ölkəsində ətraf mühitin
-            mühafizəsində töhvə vermək məqsədi ilə fəaliyyətdədir. 
-          </h1>
-
-          <div className="buttons">
-            <Link to={"/"}>START A PROJECT</Link>
-            <Link to={"/"}>MORE ABOUT US</Link>
-          </div>
-        </div> */}
         <CarouselComponent />
 
         <div className="socialMediaIcons" data-aos="zoom-in-left">
@@ -105,41 +94,47 @@ const HomePage = () => {
         <div className="overlay"> </div>
 
         <div className="container">
-          <p data-aos="fade-up">HELLO THERE</p>
-          <h1 data-aos="fade-up">We Are Glint</h1>
+          <h1 data-aos="fade-up">Biz Təbiət Dostlarıyıq</h1>
 
           <p className="description" data-aos="fade-up">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt.
+            Azərbaycanda 2008-ci ildə "Yaşıl Velosipedçilər Klubu" kimi tanınan
+            Təbiət Dostları artıq Gənclər Təşkilatı kimi fəaliyyətini davam
+            edir. Təşkilat Qafqazda xüsusi ilə də Azərbaycanda ətraf mühitin
+            mühafizəsini təşviqi, sağlam həyat tərzinin təbliği, açıq-havada
+            təlim və tədrisin inkişafı məqsədi ilə yerli və beynəlxalq layihələr
+            icra edir. “Təbiət Dostları - Azərbaycan”, “Beynəlxalq Gənclər
+            Təbiət Dostları” (International Young Nature Friends) təşkilatının
+            tamhüquqlu üzvü olaraq, hər il müxtəlif beynəlxalq proqramların
+            iştirakçısı və təşkilatçısı kimi fəaliyyət göstərir. 120 ildən
+            çoxdur ki, Beynəlxalq Təbiət Dostları qrupları dünyanın müxtəlif
+            şəhərlərində mütəmadi olaraq maarifləndirici layihələr və turistik
+            gəzintilər həyata keçirir. Azərbaycanda Təbiət Dostları Evlərinin
+            başlanması biraz zaman alsada dünyanın əksər bölgəsində minlərlə
+            Təbiət Dostları Evləri fəaliyyət göstərir.
           </p>
 
           <div className="counts" data-aos="fade-up">
             <div className="count">
               <h2 ref={ref}>{count1}</h2>
-              <h4>Awards Received</h4>
+              <h4>Üzvlər</h4>
             </div>
             <hr />
 
             <div className="count">
               <h2 ref={ref}>{count2}</h2>
-              <h4>Awards Received</h4>
+              <h4>Ekoloji layihələr və proqramlar</h4>
             </div>
             <hr />
 
             <div className="count">
               <h2 ref={ref}>{count3}</h2>
-              <h4>Awards Received</h4>
+              <h4>EkoTuristik səfərlər və turlar</h4>
             </div>
             <hr />
 
             <div className="count">
               <h2 ref={ref}>{count4}</h2>
-              <h4>Awards Received</h4>
+              <h4>Beynəlxalq Təbiət Dostları Üzvləri</h4>
             </div>
           </div>
         </div>
@@ -148,78 +143,78 @@ const HomePage = () => {
       <section id="section3">
         <div className="container">
           <div className="head" data-aos="fade-up">
-            <h2>WHAT WE DO</h2>
+            <h2>BİZ NƏ EDİRİK</h2>
 
             <h1>
-              We’ve got everything you need to launch and grow your business
+              İllərdir Təbiət Dostları Azərbaycanda ekoloji istiqamətdə
+              maarifləndirici layihələr və görüşlər edir
             </h1>
           </div>
 
           <div className="cards">
             <div className="card" data-aos="fade-right">
               <div className="">
-                <FaBrush className="icon" />
+                <MdEventAvailable className="icon" />
               </div>
 
               <div className="cardHead">
-                <h2>Brand Identity</h2>
+                <h2>TƏDBİRLƏR</h2>
 
                 <p className="text">
-                  Nemo cupiditate ab quibusdam quaerat impedit magni. Earum
-                  suscipit ipsum laudantium. Quo delectus est. Maiores voluptas
-                  ab sit natus veritatis ut. Debitis nulla cumque veritatis.
-                  Sunt suscipit voluptas ipsa in tempora esse soluta sint.
-                </p>
-              </div>
-            </div>
-
-            <div className="card" data-aos="fade-left">
-              <div className="">
-                <FaBezierCurve className="icon" />
-              </div>
-
-              <div className="cardHead">
-                <h2>Illustration</h2>
-
-                <p className="text">
-                  Nemo cupiditate ab quibusdam quaerat impedit magni. Earum
-                  suscipit ipsum laudantium. Quo delectus est. Maiores voluptas
-                  ab sit natus veritatis ut. Debitis nulla cumque veritatis.
-                  Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+                  Yerli və beynəlxalq qeyri formal seminarlar, təlimlər,
+                  konfranslar və fərqli formatda açıq-havada maarifləndirici
+                  tədbirlər 
                 </p>
               </div>
             </div>
 
             <div className="card" data-aos="fade-right">
               <div className="">
-                <FaBullhorn className="icon" />
+                <MdDirectionsBike className="icon" />
               </div>
 
               <div className="cardHead">
-                <h2>Marketing</h2>
+                <h2>EKOLOJİ NƏQLİYYATIN TƏBLİĞİ</h2>
 
                 <p className="text">
-                  Nemo cupiditate ab quibusdam quaerat impedit magni. Earum
-                  suscipit ipsum laudantium. Quo delectus est. Maiores voluptas
-                  ab sit natus veritatis ut. Debitis nulla cumque veritatis.
-                  Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+                  Velosipedin nəqliyyat vasitəsi kimi ölkədə təşfiqi və təbliği.
+                  Ölkədə ekoloji nəqliyatın inkişafı üçün şəhərlərin
+                  planlamasına və infrastrukturuna daxil olması istiqamətində
+                  təkliflərin hazırlanması və təbliğat tədbirlərin təşkili
                 </p>
               </div>
             </div>
 
             <div className="card" data-aos="fade-left">
               <div className="">
-                <FaGlobe className="icon" />
+                <FaHiking className="icon" />
               </div>
 
               <div className="cardHead">
-                <h2>Web Design</h2>
+                <h2>EKOTURİZM VƏ REKREASİYA</h2>
 
                 <p className="text">
-                  Nemo cupiditate ab quibusdam quaerat impedit magni. Earum
-                  suscipit ipsum laudantium. Quo delectus est. Maiores voluptas
-                  ab sit natus veritatis ut. Debitis nulla cumque veritatis.
-                  Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+                  Ətraf mühitə qarşı daha da məsuliyyətli olmağa və bölgədə
+                  davamlı turizmin inkişafı isiqamətində, quşların müşahidəsi
+                  səfərləri (birdwatching), çadır düşərgələri (camping), piyada
+                  yürüşlər (hiking) və s. kimi açıq hava tədbirlərinin təşkili.
+                </p>
+              </div>
+            </div>
+
+            <div className="card" data-aos="fade-left">
+              <div className="">
+                <GiEcology className="icon" />
+              </div>
+
+              <div className="cardHead">
+                <h2>PROQRAMLARIN TƏŞKİLİ </h2>
+
+                <p className="text">
+                  Yerli mütəxəssislərin məsuliyyətli və davamlı turizmin və
+                  ətraf mühütün mühafizəsi mövzularında sertifikatlaşdırma
+                  proqramları. O cümlədən məktəblilər üçün ekoloji düşərgələrin
+                  və ekoturların təşkili.
                 </p>
               </div>
             </div>
@@ -229,9 +224,9 @@ const HomePage = () => {
 
       <section id="section4">
         <div className="head" data-aos="fade-up">
-          <h2>RECENT WORKS</h2>
+          <h2>SON LAYİHƏLƏRİMİZ</h2>
 
-          <h1>We love what we do, check out some of our latest works</h1>
+          <h1>Biz təbiəti və işimizi sevirik, sən də bizə qoşul!</h1>
         </div>
 
         <div className="container">
@@ -243,8 +238,8 @@ const HomePage = () => {
         <div className="container">
           <hr />
           <div className="head" data-aos="fade-up">
-            <h2>CONTACT US</h2>
-            <h1>Reach out for a new project or just say hello</h1>
+            <h2>BİZİMLƏ ƏLAQƏ</h2>
+            <h1>Yeni bir layihə üçün müraciət edin</h1>
           </div>
 
           <ContactUS />

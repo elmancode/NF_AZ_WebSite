@@ -7,7 +7,9 @@ import {
   Form,
   Input,
   Radio,
+  Result,
   Select,
+  Spin,
   Upload,
 } from "antd";
 import { PlusOutlined, MinusCircleOutlined } from "@ant-design/icons";
@@ -40,6 +42,8 @@ const MemberShipForm = () => {
   const [validationError, setValidationError] = useState(null);
 
   const [loading, setLoading] = useState(false);
+
+  const [result, setResult] = useState(true);
 
   const handleLanguageChange = (selectedLanguage, level, checked) => {
     if (checked) {
@@ -120,12 +124,13 @@ const MemberShipForm = () => {
       }
       setLoading(true);
       const { data } = await axios.post(
-        `${BASE_URL}/memberShip`,
+        `${BASE_URL}memberShip`,
         memberShipData
       );
 
       console.log(data);
       setLoading(false);
+      setResult(true);
     } catch (error) {
       console.error("error:", error);
       setLoading(false);
@@ -135,471 +140,487 @@ const MemberShipForm = () => {
   return (
     <div id="memberShipForm">
       <div className="content">
-        <Form
-          labelCol={{
-            span: 0,
-          }}
-          wrapperCol={{
-            span: 0,
-          }}
-          {...formItemLayoutWithOutLabel}
-          style={{
-            maxWidth: 800,
-          }}
-        >
-          {/* ad soyad */}
-          <Form.Item>
-            <p>
-              Ad, Soyad <span>*</span>
-            </p>
-            <Input onChange={(e) => setFullName(e?.target.value)} />
-
-            {validationError?.index === 0 ? (
-              <p className="errorText">{validationError?.error}</p>
-            ) : null}
-          </Form.Item>
-
-          {/* dogum tarixi */}
-          <Form.Item>
-            <p>
-              Doğum tarixi <span>*</span>
-            </p>
-
-            <DatePicker
-              placeholder="2024-05-19"
-              onChange={(date, dateString) => setBirthday(dateString)}
-            />
-
-            {validationError?.index === 1 ? (
-              <p className="errorText">{validationError?.error}</p>
-            ) : null}
-          </Form.Item>
-
-          {/* email */}
-          <Form.Item>
-            <p>
-              Elektron poçt ünvanı <span>*</span>
-            </p>
-
-            <Input onChange={(e) => setEmail(e.target.value)} />
-
-            {validationError?.index === 2 ? (
-              <p className="errorText">{validationError?.error}</p>
-            ) : null}
-          </Form.Item>
-
-          {/* social media url's */}
-          <Form.List
-            name="SocialMediaURLS"
-            rules={[
-              {
-                validator: async (_, SocialMediaURLS) => {
-                  if (!SocialMediaURLS || SocialMediaURLS.length < 2) {
-                    return Promise.reject(
-                      new Error("6-dan çox hesab əlavə etməyin")
-                    );
-                  }
-                },
-              },
-            ]}
+        {result ? (
+          <Result
+            status="success"
+            title="Qeydiyyatınız Uğurla Tamamlandı!"
+            subTitle="Dəyərli Təbiət Dostu qısa zamanda sənə geri dönüş edəcəyik"
+            // extra={[
+            //   <Button type="primary" key="console">
+            //     Go Console
+            //   </Button>,
+            //   <Button key="buy">Buy Again</Button>,
+            // ]}
+          />
+        ) : (
+          <Form
+            labelCol={{
+              span: 0,
+            }}
+            wrapperCol={{
+              span: 0,
+            }}
+            {...formItemLayoutWithOutLabel}
+            style={{
+              maxWidth: 800,
+            }}
           >
-            {(fields, { add, remove }) => (
-              <>
-                <Form.Item>
-                  <Button
-                    type="dashed"
-                    onClick={() => add()}
-                    style={{
-                      width: "100%",
-                    }}
-                    icon={<PlusOutlined />}
-                  >
-                    Sosial şəbəkə hesabları (əgər varsa)
-                  </Button>
-                </Form.Item>
+            {/* ad soyad */}
+            <Form.Item>
+              <p>
+                Ad, Soyad <span>*</span>
+              </p>
+              <Input onChange={(e) => setFullName(e?.target.value)} />
 
-                {fields.map((field, index) => (
-                  <Form.Item
-                    {...formItemLayoutWithOutLabel}
-                    required={false}
-                    key={field.key}
-                  >
-                    <Form.Item {...field}>
-                      <Input
-                        className="socialMediaInput"
-                        placeholder="Sosial media hesabının linki"
-                        onChange={(e) => {
-                          const newValue = e.target.value;
-                          setSocialMediaURLS((prevSocialMediaURLS) => {
-                            const updatedSocialMediaURLS = [
-                              ...prevSocialMediaURLS,
-                            ];
-                            updatedSocialMediaURLS[index] = newValue;
-                            return updatedSocialMediaURLS;
-                          });
-                        }}
-                      />{" "}
-                      <MinusCircleOutlined
-                        className="dynamic-delete-button"
-                        onClick={() => remove(field.name)}
-                      />
-                    </Form.Item>
-                  </Form.Item>
-                ))}
-              </>
-            )}
-          </Form.List>
+              {validationError?.index === 0 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
+            </Form.Item>
 
-          {/* mobil nomre */}
-          <Form.Item>
-            <p>
-              Mobil nömrə <span>*</span>
-            </p>
+            {/* dogum tarixi */}
+            <Form.Item>
+              <p>
+                Doğum tarixi <span>*</span>
+              </p>
 
-            <Input
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              type="number"
-            />
+              <DatePicker
+                placeholder="2024-05-19"
+                onChange={(date, dateString) => setBirthday(dateString)}
+              />
 
-            {validationError?.index === 3 ? (
-              <p className="errorText">{validationError?.error}</p>
-            ) : null}
-          </Form.Item>
+              {validationError?.index === 1 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
+            </Form.Item>
 
-          {/* ev unvani */}
-          <Form.Item>
-            <p>
-              Ünvan <span>*</span> <br />
-              <small>
-                <em>(Təşkilat tərəfindən çatdırılma üçün istifadə ediləcək)</em>
-              </small>
-            </p>
-            <Input onChange={(e) => setAddress(e.target.value)} />
+            {/* email */}
+            <Form.Item>
+              <p>
+                Elektron poçt ünvanı <span>*</span>
+              </p>
 
-            {validationError?.index === 4 ? (
-              <p className="errorText">{validationError?.error}</p>
-            ) : null}
-          </Form.Item>
+              <Input onChange={(e) => setEmail(e.target.value)} />
 
-          {/* is saheniz */}
-          <Form.Item>
-            <p>
-              İş sahəniz <span>*</span>
-            </p>
+              {validationError?.index === 2 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
+            </Form.Item>
 
-            <Input onChange={(e) => setOccupation(e.target.value)} />
-
-            {validationError?.index === 5 ? (
-              <p className="errorText">{validationError?.error}</p>
-            ) : null}
-          </Form.Item>
-
-          {/* language */}
-          <Form.Item>
-            <p>
-              Bildiyiniz dillər
-              <span>*</span>
-            </p>
-
-            <div className="language">
-              <div className="languages">
-                <p>Azərbaycan</p>
-                <p>English</p>
-                <p>Deutsch</p>
-                <p>Русский</p>
-              </div>
-
-              <div className="header">
-                <div>
-                  <p>Zəif</p>
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "Azərbaycan",
-                        "Elementar",
-                        e.target.checked
-                      )
+            {/* social media url's */}
+            <Form.List
+              name="SocialMediaURLS"
+              rules={[
+                {
+                  validator: async (_, SocialMediaURLS) => {
+                    if (!SocialMediaURLS || SocialMediaURLS.length < 2) {
+                      return Promise.reject(
+                        new Error("6-dan çox hesab əlavə etməyin")
+                      );
                     }
-                  />
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "English",
-                        "Elementar",
-                        e.target.checked
-                      )
-                    }
-                  />
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "Deutsch",
-                        "Elementar",
-                        e.target.checked
-                      )
-                    }
-                  />
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "Русский",
-                        "Elementar",
-                        e.target.checked
-                      )
-                    }
-                  />
-                </div>
-
-                <div>
-                  <p>Orta</p>
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "Azərbaycan",
-                        "Orta səviyyə",
-                        e.target.checked
-                      )
-                    }
-                  />
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "English",
-                        "Orta səviyyə",
-                        e.target.checked
-                      )
-                    }
-                  />
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "Deutsch",
-                        "Orta səviyyə",
-                        e.target.checked
-                      )
-                    }
-                  />
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "Русский",
-                        "Orta səviyyə",
-                        e.target.checked
-                      )
-                    }
-                  />
-                </div>
-
-                <div>
-                  <p>Yaxşı</p>
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "Azərbaycan",
-                        "Profesional",
-                        e.target.checked
-                      )
-                    }
-                  />
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "English",
-                        "Profesional",
-                        e.target.checked
-                      )
-                    }
-                  />
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "Deutsch",
-                        "Profesional",
-                        e.target.checked
-                      )
-                    }
-                  />
-                  <Checkbox
-                    onChange={(e) =>
-                      handleLanguageChange(
-                        "Русский",
-                        "Profesional",
-                        e.target.checked
-                      )
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-          </Form.Item>
-
-          {/* Təbiət Dostları haqqında necə məlumat aldınız? */}
-          {/* state 1 */}
-          <Form.Item>
-            <p>
-              Təbiət Dostları haqqında necə məlumat aldınız? <span>*</span>
-            </p>
-            <TextArea rows={2} onChange={(e) => setState1(e.target.value)} />
-          </Form.Item>
-
-          {/* Təşkilatın üzvü olmağa maraqlı olmanızın səbəbi nədir? */}
-          {/* state 2 */}
-          <Form.Item>
-            <p>
-              Təşkilatın üzvü olmağa maraqlı olmanızın səbəbi nədir?
-              <span>*</span>
-            </p>
-            <TextArea rows={2} onChange={(e) => setState2(e.target.value)} />
-          </Form.Item>
-
-          {/* Köynək ölçünüzü qeyd edin */}
-          <Form.Item>
-            <p>
-              Köynək ölçünüzü qeyd edin <span>*</span>
-            </p>
-            <Select onChange={tshirtSizeChange}>
-              <Select.Option value="XS">XS</Select.Option>
-              <Select.Option value="S">S</Select.Option>
-              <Select.Option value="M">M</Select.Option>
-              <Select.Option value="L">L</Select.Option>
-              <Select.Option value="XL">XL</Select.Option>
-            </Select>
-
-            {validationError?.index === 6 ? (
-              <p className="errorText">{validationError?.error}</p>
-            ) : null}
-          </Form.Item>
-
-          {/* Sevdiyiniz rəngi qeyd edin */}
-          <Form.Item>
-            <p>
-              Sevdiyiniz rəngi qeyd edin <span>*</span>
-            </p>
-            <Input onChange={(e) => setFavoriteColor(e.target.value)} />
-
-            {validationError?.index === 7 ? (
-              <p className="errorText">{validationError?.error}</p>
-            ) : null}
-          </Form.Item>
-
-          {/* Təbiətdə ən çox bəyəndiyiniz heyvanın adını yazın */}
-          {/* state 3 */}
-          <Form.Item>
-            <p>
-              Təbiətdə ən çox bəyəndiyiniz heyvanın adını yazın (səbəbini də
-              qeyd edə bilərsiniz) <span>*</span>
-            </p>
-            <TextArea rows={2} onChange={(e) => setState3(e.target.value)} />
-          </Form.Item>
-
-          {/* Təbiət Dostları təşkilatına töhfə verə biləcəyiniz xüsusi
-              bacarıqlarınız və ya istedadınız varmı? */}
-          {/* state 4 */}
-          <Form.Item>
-            <p>
-              Təbiət Dostları təşkilatına töhfə verə biləcəyiniz xüsusi
-              bacarıqlarınız və ya istedadınız varmı? <span>*</span>
-            </p>
-            <TextArea rows={2} onChange={(e) => setState4(e.target.value)} />
-          </Form.Item>
-
-          {/* Başqa bizə bildirmək istədiyiniz bir şey varmı? */}
-          {/* state 5 */}
-          <Form.Item>
-            <p>
-              Başqa bizə bildirmək istədiyiniz bir şey varmı? <span>*</span>
-            </p>
-            <TextArea rows={2} onChange={(e) => setState5(e.target.value)} />
-          </Form.Item>
-
-          {/* Təbiət Dostları haqqında yenilik və xəbərləri e-poçt vasitəsilə
-              almaq istəyirsinizmi? */}
-          <Form.Item>
-            <p>
-              Təbiət Dostları haqqında yenilik və xəbərləri e-poçt vasitəsilə
-              almaq istəyirsinizmi? <span>*</span>
-            </p>
-            <Radio.Group
-              onChange={(e) => setEmailSubscribtion(e?.target.value)}
+                  },
+                },
+              ]}
             >
-              <Radio value="yes">Bəli</Radio>
-              <Radio value="no">Xeyr</Radio>
-            </Radio.Group>
-          </Form.Item>
+              {(fields, { add, remove }) => (
+                <>
+                  <Form.Item>
+                    <Button
+                      type="dashed"
+                      onClick={() => add()}
+                      style={{
+                        width: "100%",
+                      }}
+                      icon={<PlusOutlined />}
+                    >
+                      Sosial şəbəkə hesabları (əgər varsa)
+                    </Button>
+                  </Form.Item>
 
-          {/* vesiqe sekilleri */}
-          <Form.Item valuePropName="fileList" getValueFromEvent={normFile}>
-            <p>
-              Qeydiyyatı tamamlamaq üçün şəxsiyyət vəsiqənizin hər iki üzünü ya
-              şəkil (məs: .png, .jpg) ya sənəd (məs: .pdf) formatında yükləyin{" "}
-              <span>*</span>
-            </p>
+                  {fields.map((field, index) => (
+                    <Form.Item
+                      {...formItemLayoutWithOutLabel}
+                      required={false}
+                      key={field.key}
+                    >
+                      <Form.Item {...field}>
+                        <Input
+                          className="socialMediaInput"
+                          placeholder="Sosial media hesabının linki"
+                          onChange={(e) => {
+                            const newValue = e.target.value;
+                            setSocialMediaURLS((prevSocialMediaURLS) => {
+                              const updatedSocialMediaURLS = [
+                                ...prevSocialMediaURLS,
+                              ];
+                              updatedSocialMediaURLS[index] = newValue;
+                              return updatedSocialMediaURLS;
+                            });
+                          }}
+                        />{" "}
+                        <MinusCircleOutlined
+                          className="dynamic-delete-button"
+                          onClick={() => remove(field.name)}
+                        />
+                      </Form.Item>
+                    </Form.Item>
+                  ))}
+                </>
+              )}
+            </Form.List>
 
-            <div className="uploadsInput">
-              <Upload
-                maxCount={1}
-                action="http://localhost:3000/upload"
-                listType="picture-card"
-                name="file"
-                onChange={handleFileChange}
-              >
-                <button
-                  style={{
-                    border: 0,
-                    background: "none",
-                  }}
-                  type="button"
-                >
-                  <PlusOutlined />
-                  <div
-                    style={{
-                      marginTop: 8,
-                    }}
-                  >
-                    arxa üzü
-                  </div>
-                </button>
-              </Upload>
-              {validationError?.index === 8 ? (
+            {/* mobil nomre */}
+            <Form.Item>
+              <p>
+                Mobil nömrə <span>*</span>
+              </p>
+
+              <Input
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                type="number"
+              />
+
+              {validationError?.index === 3 ? (
                 <p className="errorText">{validationError?.error}</p>
               ) : null}
+            </Form.Item>
 
-              <Upload
-                maxCount={1}
-                action="http://localhost:3000/upload"
-                listType="picture-card"
-                name="file"
-                onChange={handleFileChange}
-              >
-                <button
-                  style={{
-                    border: 0,
-                    background: "none",
-                  }}
-                  type="button"
-                >
-                  <PlusOutlined />
-                  <div
-                    style={{
-                      marginTop: 8,
-                    }}
-                  >
-                    ön üzü
-                  </div>
-                </button>
-              </Upload>
-              {validationError?.index === 9 ? (
+            {/* ev unvani */}
+            <Form.Item>
+              <p>
+                Ünvan <span>*</span> <br />
+                <small>
+                  <em>
+                    (Təşkilat tərəfindən çatdırılma üçün istifadə ediləcək)
+                  </em>
+                </small>
+              </p>
+              <Input onChange={(e) => setAddress(e.target.value)} />
+
+              {validationError?.index === 4 ? (
                 <p className="errorText">{validationError?.error}</p>
               ) : null}
-            </div>
-          </Form.Item>
+            </Form.Item>
 
-          <Form.Item>
-            <button className="success" onClick={handleFinish}>
-              Təqdim edin
-            </button>
-          </Form.Item>
-        </Form>
+            {/* is saheniz */}
+            <Form.Item>
+              <p>
+                İş sahəniz <span>*</span>
+              </p>
+
+              <Input onChange={(e) => setOccupation(e.target.value)} />
+
+              {validationError?.index === 5 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
+            </Form.Item>
+
+            {/* language */}
+            <Form.Item>
+              <p>
+                Bildiyiniz dillər
+                <span>*</span>
+              </p>
+
+              <div className="language">
+                <div className="languages">
+                  <p>Azərbaycan</p>
+                  <p>English</p>
+                  <p>Deutsch</p>
+                  <p>Русский</p>
+                </div>
+
+                <div className="header">
+                  <div>
+                    <p>Zəif</p>
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "Azərbaycan",
+                          "Elementar",
+                          e.target.checked
+                        )
+                      }
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "English",
+                          "Elementar",
+                          e.target.checked
+                        )
+                      }
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "Deutsch",
+                          "Elementar",
+                          e.target.checked
+                        )
+                      }
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "Русский",
+                          "Elementar",
+                          e.target.checked
+                        )
+                      }
+                    />
+                  </div>
+
+                  <div>
+                    <p>Yaxşı</p>
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "Azərbaycan",
+                          "Orta səviyyə",
+                          e.target.checked
+                        )
+                      }
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "English",
+                          "Orta səviyyə",
+                          e.target.checked
+                        )
+                      }
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "Deutsch",
+                          "Orta səviyyə",
+                          e.target.checked
+                        )
+                      }
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "Русский",
+                          "Orta səviyyə",
+                          e.target.checked
+                        )
+                      }
+                    />
+                  </div>
+
+                  <div>
+                    <p>Əla</p>
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "Azərbaycan",
+                          "Profesional",
+                          e.target.checked
+                        )
+                      }
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "English",
+                          "Profesional",
+                          e.target.checked
+                        )
+                      }
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "Deutsch",
+                          "Profesional",
+                          e.target.checked
+                        )
+                      }
+                    />
+                    <Checkbox
+                      onChange={(e) =>
+                        handleLanguageChange(
+                          "Русский",
+                          "Profesional",
+                          e.target.checked
+                        )
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </Form.Item>
+
+            {/* Təbiət Dostları haqqında necə məlumat aldınız? */}
+            {/* How get info? */}
+            <Form.Item>
+              <p>
+                Təbiət Dostları haqqında necə məlumat aldınız? <span>*</span>
+              </p>
+              <TextArea rows={2} onChange={(e) => setState1(e.target.value)} />
+            </Form.Item>
+
+            {/* Təşkilatın üzvü olmağa maraqlı olmanızın səbəbi nədir? */}
+            {/* reason */}
+            <Form.Item>
+              <p>
+                Təşkilatın üzvü olmağa maraqlı olmanızın səbəbi nədir?
+                <span>*</span>
+              </p>
+              <TextArea rows={2} onChange={(e) => setState2(e.target.value)} />
+            </Form.Item>
+
+            {/* Köynək ölçünüzü qeyd edin */}
+            <Form.Item>
+              <p>
+                Köynək ölçünüzü qeyd edin <span>*</span>
+              </p>
+              <Select onChange={tshirtSizeChange}>
+                <Select.Option value="XS">XS</Select.Option>
+                <Select.Option value="S">S</Select.Option>
+                <Select.Option value="M">M</Select.Option>
+                <Select.Option value="L">L</Select.Option>
+                <Select.Option value="XL">XL</Select.Option>
+              </Select>
+
+              {validationError?.index === 6 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
+            </Form.Item>
+
+            {/* Sevdiyiniz rəngi qeyd edin */}
+            <Form.Item>
+              <p>
+                Sevdiyiniz rəngi qeyd edin <span>*</span>
+              </p>
+              <Input onChange={(e) => setFavoriteColor(e.target.value)} />
+
+              {validationError?.index === 7 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
+            </Form.Item>
+
+            {/* Təbiətdə ən çox bəyəndiyiniz heyvanın adını yazın */}
+            {/* animal name */}
+            <Form.Item>
+              <p>
+                Təbiətdə ən çox bəyəndiyiniz heyvanın adını yazın (səbəbini də
+                qeyd edə bilərsiniz) <span>*</span>
+              </p>
+              <TextArea rows={2} onChange={(e) => setState3(e.target.value)} />
+            </Form.Item>
+
+            {/* Təbiət Dostları təşkilatına töhfə verə biləcəyiniz xüsusi
+              bacarıqlarınız və ya istedadınız varmı? */}
+            {/* skills */}
+            <Form.Item>
+              <p>
+                Təbiət Dostları təşkilatına töhfə verə biləcəyiniz xüsusi
+                bacarıqlarınız və ya istedadınız varmı? <span>*</span>
+              </p>
+              <TextArea rows={2} onChange={(e) => setState4(e.target.value)} />
+            </Form.Item>
+
+            {/* Başqa bizə bildirmək istədiyiniz bir şey varmı? */}
+            {/* other info */}
+            <Form.Item>
+              <p>
+                Başqa bizə bildirmək istədiyiniz bir şey varmı? <span>*</span>
+              </p>
+              <TextArea rows={2} onChange={(e) => setState5(e.target.value)} />
+            </Form.Item>
+
+            {/* Təbiət Dostları haqqında yenilik və xəbərləri e-poçt vasitəsilə
+              almaq istəyirsinizmi? */}
+            <Form.Item>
+              <p>
+                Təbiət Dostları haqqında yenilik və xəbərləri e-poçt vasitəsilə
+                almaq istəyirsinizmi? <span>*</span>
+              </p>
+              <Radio.Group
+                onChange={(e) => setEmailSubscribtion(e?.target.value)}
+              >
+                <Radio value="yes">Bəli</Radio>
+                <Radio value="no">Xeyr</Radio>
+              </Radio.Group>
+            </Form.Item>
+
+            {/* vesiqe sekilleri */}
+            <Form.Item valuePropName="fileList" getValueFromEvent={normFile}>
+              <p>
+                Qeydiyyatı tamamlamaq üçün şəxsiyyət vəsiqənizin hər iki üzünü
+                ya şəkil (məs: .png, .jpg) ya sənəd (məs: .pdf) formatında
+                yükləyin <span>*</span>
+              </p>
+
+              <div className="uploadsInput">
+                <Upload
+                  maxCount={1}
+                  action={`${BASE_URL}upload`}
+                  listType="picture-card"
+                  name="file"
+                  onChange={handleFileChange}
+                >
+                  <button
+                    style={{
+                      border: 0,
+                      background: "none",
+                    }}
+                    type="button"
+                  >
+                    <PlusOutlined />
+                    <div
+                      style={{
+                        marginTop: 8,
+                      }}
+                    >
+                      arxa üzü
+                    </div>
+                  </button>
+                </Upload>
+                {validationError?.index === 8 ? (
+                  <p className="errorText">{validationError?.error}</p>
+                ) : null}
+
+                <Upload
+                  maxCount={1}
+                  action={`${BASE_URL}upload`}
+                  listType="picture-card"
+                  name="file"
+                  onChange={handleFileChange}
+                >
+                  <button
+                    style={{
+                      border: 0,
+                      background: "none",
+                    }}
+                    type="button"
+                  >
+                    <PlusOutlined />
+                    <div
+                      style={{
+                        marginTop: 8,
+                      }}
+                    >
+                      ön üzü
+                    </div>
+                  </button>
+                </Upload>
+                {validationError?.index === 9 ? (
+                  <p className="errorText">{validationError?.error}</p>
+                ) : null}
+              </div>
+            </Form.Item>
+
+            <Form.Item>
+              <button className="success" onClick={handleFinish}>
+                {loading ? <Spin /> : "Təqdim edin"}
+              </button>
+            </Form.Item>
+          </Form>
+        )}
       </div>
     </div>
   );

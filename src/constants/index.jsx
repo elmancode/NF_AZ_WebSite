@@ -1,1 +1,1 @@
-export const BASE_URL = "nfazbackend-production.up.railway.app";
+export const BASE_URL = "https://nfazbackend.up.railway.app/";

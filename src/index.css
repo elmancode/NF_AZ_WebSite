@@ -15,8 +15,8 @@
 }
 
 
-@media (max-width: 600px) {
-
+.ant-spin-dot-item {
+  background-color: white !important;
 }
 
 
