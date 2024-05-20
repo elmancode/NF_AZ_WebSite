@@ -68,12 +68,15 @@
     @media only screen and (max-width: 900px) {
         .content {
 
-            .css-dev-only-do-not-override-1r287do {
-                max-width: 90%;
-                margin-left: 10px !important;
+            .ant-form-horizontal {
+                width: 80%;
+
+                .ant-form-item {
+                    margin-left: -100px !important;
+                }
 
                 p {
-                    margin-left: 10px !important;
+                    margin-left: 0px !important;
                 }
             }
 
@@ -87,14 +90,27 @@
         }
     }
 
+    @media only screen and (max-width: 800px) {
+        .content {
+            padding: 70px 0 30px 0 !important;
+
+            .ant-form-horizontal {
+                .ant-form-item {
+                    margin-left: -70px !important;
+                }
+            }
+        }
+    }
+
     @media only screen and (max-width: 600px) {
         .content {
-            .css-dev-only-do-not-override-1r287do {
-                max-width: 95%;
+
+            .ant-form-horizontal {
+                width: 90%;
                 margin-left: 10px !important;
 
                 p {
-                    margin-left: 10px !important;
+                    margin-left: 0px !important;
                 }
             }
 
@@ -108,16 +124,29 @@
         }
     }
 
+    @media only screen and (max-width: 576px) {
+        .content {
+            .ant-form-horizontal {
+                width: 70%;
+                margin-left: 100px !important;
+
+                p {
+                    margin-left: 0px !important;
+                }
+            }
+        }
+    }
+
     @media only screen and (max-width: 500px) {
         .content {
             margin: 0 10px;
 
-            .css-dev-only-do-not-override-1r287do {
+            .ant-form-horizontal {
                 max-width: 97%;
-                margin-left: 5px !important;
+                margin-left: 100px !important;
 
                 p {
-                    margin-left: 5px !important;
+                    margin-left: 0px !important;
                 }
             }
         }
@@ -125,6 +154,15 @@
 
     @media only screen and (max-width: 412px) {
         .content {
+
+            .ant-form-horizontal {
+                width: 65%;
+                margin-left: 90px !important;
+
+                p {
+                    margin-left: 0px !important;
+                }
+            }
 
             .language {
                 gap: 30px;
