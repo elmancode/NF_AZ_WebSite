@@ -144,7 +144,7 @@ const MemberShipForm = () => {
           <Result
             status="success"
             title="Qeydiyyatınız Uğurla Tamamlandı!"
-            subTitle="Dəyərli Təbiət Dostu, qısa zamanda sənə geri dönüş edəcəyik"
+            subTitle="Dəyərli Təbiət Dostu, qısa zamanda sizə geri dönüş edəcəyik"
           />
         ) : (
           <Form
