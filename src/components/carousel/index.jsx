@@ -2,6 +2,7 @@ import React from "react";
 import { Carousel } from "antd";
 import "./index.scss";
 import { Link } from "react-router-dom";
+import Cover2 from "../../assets/cover/cover2.jpg"
 
 const CarouselComponent = ({ data }) => {
   const staticData = [
@@ -13,7 +14,7 @@ const CarouselComponent = ({ data }) => {
     },
     {
       coverImage:
-        "https://scontent-fra3-2.xx.fbcdn.net/v/t31.18172-8/1553280_10152672462273709_318643428_o.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=VQd8EnqSngAQ7kNvgFFWPc5&_nc_ht=scontent-fra3-2.xx&oh=00_AYCP4teCvwk_vWWo5fC4l1eqMxMUsSA09oHzreaVKZLuMw&oe=6672EA10",
+      Cover2,
         text: "2008-ci ildən ölkədə Velosipedin nəqliyyat vasitəsi kimi təşfiqi və təbliği ilə fəaliyyətdədir. ",
       headText: "EKOLOJİ NƏQLİYYATIN TƏBLİĞİ",
     },

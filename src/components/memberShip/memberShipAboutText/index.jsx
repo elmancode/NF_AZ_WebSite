@@ -9,18 +9,21 @@ const MemberShipAboutPage = () => {
   return (
     <div id="memberShipAbout">
       <p>
-        Dəyərli dost! Qeydiyyat formunu doldurmamışdan öncə, təşkilatın məqsəd,
-        vəzifələri o cümlədən üzvlərin hüquq və vəzifələri ilə tanış olduqdan və
+        Dəyərli dost! 
+        <br />
+        <br />
+        Qeydiyyat formunu doldurmamışdan öncə, təşkilatın məqsəd,
+        vəzifələri o cümlədən üzvlərin hüquq və vəzifələri ilə tanış ola və
         razı olduqdan sonra aşağıda qeyd edilən RAZIYAM düyməsini tıklayaraq
         qeydiyyat formuna keçid edə bilərsiniz. <br />
         <br />
         <b>1. Təbiət Dostları kimdir?</b> <br />
         <br />
         Azərbaycanda 2008-ci ildən "Yaşıl Velosipedçilər Klubu", “Ekotur
-        Azərbaycan” kimi tanınan Təbiət Dostları ölkədə rəsmi qeydiyyatdan
+        Azərbaycan” kimi tanınan Təbiət Dostları 2013-cü ildə rəsmi qeydiyyatdan
         keçərək Gənclər Təşkilatı kimi fəaliyyətini davam edir. Təşkilat
         Qafqazda xüsusi ilə də Azərbaycanda ətraf mühitin mühafizəsini təşviqi,
-        sağlam həyat tərzinin təbliği, açıq-havada təlim və tədrisin inkişafı
+        sağlam həyat tərzinin təbliği, açıq havada təlim və tədrisin inkişafı
         məqsədi ilə yerli və beynəlxalq layihələr icra edir. <br />
         <br />
         <b>2. Təbiət Dostlarının hüquqları:</b> <br />
@@ -31,7 +34,7 @@ const MemberShipAboutPage = () => {
         və digər açıq hava tədbirlərində endirimli iştirak etmək hüququ;
         <br /> 2.3. Təbiət Dostlarının missiyasına dəstək olacaq şəxsi
         təşəbbüsləri təşkilat adından reallaşdırmaq hüququ; <br />
-        2.4. On iki aydan çox fəal olan üzvlər, Təbiət Dostları təşkilatının
+        2.4. On iki aydan çox fəal olan üzvlərin, Təbiət Dostları təşkilatının
         İdarə Heyətinə seçilmək və yeni İdarə Heyətini seçmək hüququ; <br />
         2.5. Təbiət Dostlarının İdarə Heyətinin rüblük toplantılarında
         müşahidəçi qismində iştirak etmək hüququ; <br />
@@ -45,7 +48,7 @@ const MemberShipAboutPage = () => {
         <br />
         <b>3. Təbiət Dostlarının vəzifələri:</b> <br />
         <br />
-        3.1. Təşkilatın məqsəd və vəzifələrin məsuliyyətlə yanaşmaq - Təbiət
+        3.1. Təşkilatın məqsəd və vəzifələrinə məsuliyyətlə yanaşmaq - Təbiət
         Dostu olmaq;
         <br /> 3.2. Birliyin tədbirlərində online və ya fiziki olaraq fəal olmaq
         <br /> <br />
@@ -59,9 +62,9 @@ const MemberShipAboutPage = () => {
         4.3. Təşkilatın xarici və daxili siyasətinə zidd davranış edildiyi
         halda; <br /> <br />
         <b>5. Təbiət Dostlarının üzvlük proseduru və növləri</b> <br /> <br />{" "}
-        <b>5.1. Prosedur:</b> Yaşı 16 və yuxarı olan Azərbaycan vətəndaşı Təbiət
-        Dostları təşkilatına üzvlük üçün müraciət edə bilər. Müraciətci
-        qeydiyyat formunu doldurduqdan və üzvlük haqqını ödənildikdən sonra
+        <b>5.1. Prosedur:</b> Yaşı 16 və yuxarı olan şəxslər Təbiət
+        Dostları təşkilatına üzvlük üçün müraciət edə bilər. Müraciətçi
+        qeydiyyat formunu doldurduqdan və üzvlük haqqını ödədikdən sonra
         Üzvlərlə iş Komitəsinin qərarı ilə müraciətçi növbəti ayın 1-dən
         etibarən rəsmi üzv olaraq qeydiyata alınır. Üzvlük 12 ay müddətində
         qüvvədə qalır. <br /> <b>5.2. Üzvlük növləri:</b> <br />
@@ -90,7 +93,7 @@ const MemberShipAboutPage = () => {
         <br />* Tələbə bileti təşkilata təqdim edilməlidir. <br />
         <br />
         <b>** QEYD:</b> Sponsor-Üzv olaraq Təbiət Doslarına dəstək olmaq
-        istəyənlər bu linkdən qeydiyyat formuna keçid edə bilərlər.
+        istəyənlər bu <a href="#" style={{color:"blue"}} >linkdən</a> qeydiyyat formuna keçid edə bilərlər.
         <br />
         <br />
         <b>!!! TƏLƏSİN - SON GÜN 31 MAY !!!</b> <br /> 1 iyun tarixinə kimi üzv

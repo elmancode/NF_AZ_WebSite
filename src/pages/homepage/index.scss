@@ -145,7 +145,7 @@
       height: 100%;
 
       h1 {
-        font-size: 78px;
+        font-size:  60px;
         line-height: 97.5px;
         color: white;
       }
@@ -253,7 +253,17 @@
     @media only screen and (max-width: 530px) {
       .container {
         h1 {
-          font-size: 40px;
+          font-size: 40px ;
+        }
+
+        p{
+          &.description {
+            max-width: 850px;
+            margin: 0 auto;
+            color: #010507;
+            line-height: 20px;
+          
+          }
         }
 
         .description {
@@ -274,11 +284,35 @@
 
     @media only screen and (max-width: 425px) {
       .container {
+
+        h1 {
+          font-size: 38px;
+          line-height: 45px;
+          color: white;
+          margin-bottom: 20px;
+        }
+  
+        p {
+          font-weight: 400;
+          font-size: 14px;
+          color: #000000;
+          // line-height: 22px;
+  
+          &.description {
+            max-width: 850px;
+            margin: 0 auto;
+            color: #010507;
+            line-height: 20px;
+          
+          }
+        }
+
         .counts {
           flex-direction: column;
 
           .count {
             text-align: center;
+
 
             h2 {
               width: 100%;
