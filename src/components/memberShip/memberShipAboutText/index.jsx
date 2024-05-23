@@ -96,7 +96,7 @@ const MemberShipAboutPage = () => {
         istəyənlər bu <a href="#" style={{color:"blue"}} >linkdən</a> qeydiyyat formuna keçid edə bilərlər.
         <br />
         <br />
-        <b>!!! TƏLƏSİN - SON GÜN 31 MAY !!!</b> <br /> 1 iyun tarixinə kimi üzv
+        <b>!!! TƏLƏSİN - SON GÜN 31 İYUN !!!</b> <br /> 1 iyun tarixinə kimi üzv
         olan şəxslər 30% endirim əldə etmiş olacaqlar. Belə ki, Tələbələr - 21 ₼
         , Fərdi üzvlük - 28₼ , Fərdi-Partyor üzv - 63 ₼ . Ailəvi üzvlük isə - 49
         ₼ , Ailəvi-Partyor üzv - 70₼ təşkil edəcək.
