@@ -62,6 +62,12 @@ export const memberShipFormValidation = (data) => {
     return { error: "Sevimli rəng ən azı 2 simvol olmalıdır.", index: 7 };
   }
 
+  if (!data.memberType || data.favoriteColor.memberType < 2) {
+    window.scrollTo({ top: 1400, left: 0, behavior: "smooth" });
+
+    return { error: "Sevimli rəng ən azı 2 simvol olmalıdır.", index: 7 };
+  }
+
   if (data.backOfLicence?.length < 2) {
     console.log(data?.backOfLicence.length);
     return { error: "Vəsiqənin arxa hissəsi keçərsizdir.", index: 8 };
@@ -71,7 +77,7 @@ export const memberShipFormValidation = (data) => {
     return { error: "Vəsiqənin ön hissəsi keçərsizdir.", index: 9 };
   }
 
-  if (!data.favoriteColor || data.favoriteColor.length < 2) {
+  if (data.emailSubscription !== "yes" || data?.emailSubscription !== "no") {
     console.log(data.emailSubscription);
     return { error: "Email abunəliyi seçilməyib", index: 10 };
   }

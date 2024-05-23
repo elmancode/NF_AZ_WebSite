@@ -38,6 +38,7 @@ const MemberShipForm = () => {
   const [frontOfLicence, setFrontOfLicence] = useState(null);
   const [backOfLicence, setBackOfLicence] = useState(null);
   const [emailSubscribtion, setEmailSubscribtion] = useState(false);
+  const [memberType, setMemberType] = useState(null);
 
   const [validationError, setValidationError] = useState(null);
 
@@ -58,6 +59,10 @@ const MemberShipForm = () => {
 
   const tshirtSizeChange = (value) => {
     setTshirtSize(value);
+  };
+
+  const memberTypeChange = (value) => {
+    setMemberType(value);
   };
 
   const normFile = (e) => {
@@ -110,6 +115,7 @@ const MemberShipForm = () => {
         state4: state4,
         state5: state5,
         tShirtSize: tshirtSize,
+        memberType: memberType,
         favoriteColor: favoriteColor,
         backOfLicence: backOfLicence,
         frontOfLicence: frontOfLicence,
@@ -539,6 +545,21 @@ const MemberShipForm = () => {
                 <Radio value="yes">Bəli</Radio>
                 <Radio value="no">Xeyr</Radio>
               </Radio.Group>
+            </Form.Item>
+
+            <Form.Item>
+              <p>
+                Üzvlük növünü seçin <span>*</span>
+              </p>
+              <Select onChange={memberTypeChange}>
+                <Select.Option value="Fərdi üzv">Fərdi üzv</Select.Option>
+                <Select.Option value="Ailəvi üzv">Ailəvi üzv</Select.Option>
+                <Select.Option value="Partnyor üzv">Partnyor üzv</Select.Option>
+              </Select>
+
+              {validationError?.index === 6 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
             </Form.Item>
 
             {/* vesiqe sekilleri */}

@@ -11,6 +11,13 @@
             margin-top: 10px;
         }
 
+        p {
+            span {
+                color: red;
+            }
+        }
+
+
         .language {
             display: flex;
             align-items: flex-end;
