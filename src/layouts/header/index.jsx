@@ -65,7 +65,7 @@ const Header = () => {
       <header data-aos="fade-down">
         <div className="header">
           <div className="left">
-            <Link to={"/üzvlük"}>
+            <Link to={"/"}>
               <img src={Logo} alt="logo" />
             </Link>
           </div>

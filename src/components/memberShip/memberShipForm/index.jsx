@@ -552,7 +552,7 @@ const MemberShipForm = () => {
               <div className="uploadsInput">
                 <Upload
                   maxCount={1}
-                  action={`${BASE_URL}upload`}
+                  action={`https://nfazcloudrailway.up.railway.app/upload`}
                   listType="picture-card"
                   name="file"
                   onChange={handleFileChange}
@@ -580,7 +580,7 @@ const MemberShipForm = () => {
 
                 <Upload
                   maxCount={1}
-                  action={`${BASE_URL}upload`}
+                  action={`https://nfazcloudrailway.up.railway.app/upload`}
                   listType="picture-card"
                   name="file"
                   onChange={handleFileChange}
