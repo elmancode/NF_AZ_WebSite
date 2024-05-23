@@ -82,7 +82,7 @@ const MemberShipForm = () => {
 
   const handleFileChange = (info) => {
     if (info.file.status === "done") {
-      const uploadedFileUrl = info.file.response.url;
+      const uploadedFileUrl = info.file.response.fileURL;
 
       if (backOfLicence) {
         setFrontOfLicence(uploadedFileUrl);
