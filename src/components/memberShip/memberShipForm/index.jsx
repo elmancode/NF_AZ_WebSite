@@ -37,7 +37,7 @@ const MemberShipForm = () => {
   const [state5, setState5] = useState("");
   const [frontOfLicence, setFrontOfLicence] = useState(null);
   const [backOfLicence, setBackOfLicence] = useState(null);
-  const [emailSubscribtion, setEmailSubscribtion] = useState(false);
+  const [emailSubscribtion, setEmailSubscribtion] = useState(null);
   const [memberType, setMemberType] = useState(null);
 
   const [validationError, setValidationError] = useState(null);
@@ -85,15 +85,14 @@ const MemberShipForm = () => {
     },
   };
 
-  const handleFileChange = (info) => {
+  const handleFileChange = (info, type) => {
     if (info.file.status === "done") {
       const uploadedFileUrl = info.file.response.fileURL;
 
-      if (backOfLicence) {
+      if (type === "front") {
         setFrontOfLicence(uploadedFileUrl);
       } else {
         setBackOfLicence(uploadedFileUrl);
-        setFrontOfLicence(uploadedFileUrl);
       }
     }
   };
@@ -317,8 +316,7 @@ const MemberShipForm = () => {
             {/* language */}
             <Form.Item>
               <p>
-                Bildiyiniz dillər
-                <span>*</span>
+                Bildiyiniz dillər <span>*</span>
               </p>
 
               <div className="language">
@@ -466,7 +464,7 @@ const MemberShipForm = () => {
             {/* reason */}
             <Form.Item>
               <p>
-                Təşkilatın üzvü olmağa maraqlı olmanızın səbəbi nədir?
+                Təşkilatın üzvü olmağa maraqlı olmanızın səbəbi nədir?{" "}
                 <span>*</span>
               </p>
               <TextArea rows={2} onChange={(e) => setState2(e.target.value)} />
@@ -545,8 +543,13 @@ const MemberShipForm = () => {
                 <Radio value="yes">Bəli</Radio>
                 <Radio value="no">Xeyr</Radio>
               </Radio.Group>
+
+              {validationError?.index === 10 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
             </Form.Item>
 
+            {/* membertype */}
             <Form.Item>
               <p>
                 Üzvlük növünü seçin <span>*</span>
@@ -557,7 +560,7 @@ const MemberShipForm = () => {
                 <Select.Option value="Partnyor üzv">Partnyor üzv</Select.Option>
               </Select>
 
-              {validationError?.index === 6 ? (
+              {validationError?.index === 11 ? (
                 <p className="errorText">{validationError?.error}</p>
               ) : null}
             </Form.Item>
@@ -571,61 +574,69 @@ const MemberShipForm = () => {
               </p>
 
               <div className="uploadsInput">
-                <Upload
-                  maxCount={1}
-                  action={`https://nfazcloudrailway.up.railway.app/upload`}
-                  listType="picture-card"
-                  name="file"
-                  onChange={handleFileChange}
-                >
-                  <button
-                    style={{
-                      border: 0,
-                      background: "none",
+                <div>
+                  <Upload
+                    maxCount={1}
+                    action={`https://nfazcloudrailway.up.railway.app/upload`}
+                    listType="picture-card"
+                    name="file"
+                    onChange={(info) => {
+                      handleFileChange(info, "back");
                     }}
-                    type="button"
                   >
-                    <PlusOutlined />
-                    <div
+                    <button
                       style={{
-                        marginTop: 8,
+                        border: 0,
+                        background: "none",
                       }}
+                      type="button"
                     >
-                      arxa üzü
-                    </div>
-                  </button>
-                </Upload>
-                {validationError?.index === 8 ? (
-                  <p className="errorText">{validationError?.error}</p>
-                ) : null}
+                      <PlusOutlined />
+                      <div
+                        style={{
+                          marginTop: 8,
+                        }}
+                      >
+                        arxa üzü
+                      </div>
+                    </button>
+                  </Upload>
+                  {validationError?.index === 8 ? (
+                    <p className="errorText">{validationError?.error}</p>
+                  ) : null}
+                </div>
 
-                <Upload
-                  maxCount={1}
-                  action={`https://nfazcloudrailway.up.railway.app/upload`}
-                  listType="picture-card"
-                  name="file"
-                  onChange={handleFileChange}
-                >
-                  <button
-                    style={{
-                      border: 0,
-                      background: "none",
+                <div>
+                  <Upload
+                    maxCount={1}
+                    action={`https://nfazcloudrailway.up.railway.app/upload`}
+                    listType="picture-card"
+                    name="file"
+                    onChange={(info) => {
+                      handleFileChange(info, "front");
                     }}
-                    type="button"
                   >
-                    <PlusOutlined />
-                    <div
+                    <button
                       style={{
-                        marginTop: 8,
+                        border: 0,
+                        background: "none",
                       }}
+                      type="button"
                     >
-                      ön üzü
-                    </div>
-                  </button>
-                </Upload>
-                {validationError?.index === 9 ? (
-                  <p className="errorText">{validationError?.error}</p>
-                ) : null}
+                      <PlusOutlined />
+                      <div
+                        style={{
+                          marginTop: 8,
+                        }}
+                      >
+                        ön üzü
+                      </div>
+                    </button>
+                  </Upload>
+                  {validationError?.index === 9 ? (
+                    <p className="errorText">{validationError?.error}</p>
+                  ) : null}
+                </div>
               </div>
             </Form.Item>
 
