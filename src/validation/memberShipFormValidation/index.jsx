@@ -17,7 +17,7 @@ export const memberShipFormValidation = (data) => {
     };
   }
 
-  if (!data.email || !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(data.email)) {
+  if (!data.email) {
     window.scrollTo({ top: 450, left: 0, behavior: "smooth" });
 
     return { error: "Email ünvanı keçərsizdir.", index: 2 };
