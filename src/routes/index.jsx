@@ -4,7 +4,7 @@ import HomePage from "../pages/homepage";
 import ProjectsPage from "../pages/projects";
 import StructurePage from "../pages/structure";
 import MemberShipPage from "../pages/memberShip";
-import SponsorMemberShipForm from "../pages/memberShip/sponsorMemberShipForm";
+import SponsorMemberShipForm from "../components/memberShip/sponsorMemberShipForm";
 
 const ROUTES = [
   {
@@ -32,7 +32,7 @@ const ROUTES = [
         element: <MemberShipPage />,
       },
       {
-        path: "üzvlük/sponsor",
+        path: "üzvlük/:id",
         element: <SponsorMemberShipForm />,
       },
     ],

@@ -1,10 +1,18 @@
 import React, { useEffect } from "react";
 import "./index.scss";
+import { useReading } from "../../../pages/memberShip"
 
 const MemberShipAboutPage = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
+
+  const [reading, handleReading] = useReading(); 
+  const handleClick = () => {
+    handleReading();
+    setReading("sponsor");
+  };
+
 
   return (
     <div id="memberShipAbout">
@@ -93,7 +101,7 @@ const MemberShipAboutPage = () => {
         <br />* Tələbə bileti təşkilata təqdim edilməlidir. <br />
         <br />
         <b>** QEYD:</b> Sponsor-Üzv olaraq Təbiət Doslarına dəstək olmaq
-        istəyənlər bu <a href="#" style={{color:"blue"}} >linkdən</a> qeydiyyat formuna keçid edə bilərlər.
+        istəyənlər bu <a onClick={handleClick} style={{color:"blue"}} >linkdən</a> qeydiyyat formuna keçid edə bilərlər.
         <br />
         <br />
         <b>!!! TƏLƏSİN - SON GÜN 30 İYUN !!!</b> <br /> 30 iyun tarixinə kimi üzv

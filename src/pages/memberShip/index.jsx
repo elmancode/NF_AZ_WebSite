@@ -2,14 +2,22 @@ import React, { useState } from "react";
 import "./index.scss";
 import MemberShipAboutPage from "../../components/memberShip/memberShipAboutText";
 import MemberShipForm from "../../components/memberShip/memberShipForm";
+import SponsorMemberShipForm from "../../components/memberShip/sponsorMemberShipForm";
 
-const MemberShipPage = () => {
+export const useReading = () => {
   const [reading, setReading] = useState(false);
 
   const handleReading = () => {
     setReading(!reading);
     window.scrollTo({ top: 100, left: 100, behavior: "smooth" });
   };
+
+  return [reading, handleReading];
+};
+
+const MemberShipPage = () => {
+  const [reading, handleReading] = useReading()
+
 
   return (
     <div id="memberShip">
@@ -33,17 +41,27 @@ const MemberShipPage = () => {
               <button onClick={handleReading}>Geri</button>
             </div>
           </>
-        ) : (
+        ) : reading == "sponsor" ? (
           <>
             <MemberShipAboutPage />
             <button onClick={handleReading} className="handleReading">
               Razıyam
             </button>
           </>
-        )}
+        ) : (
+<>
+            <MemberShipAboutPage />
+            <button onClick={handleReading} className="handleReading">
+              Razıyam
+            </button>
+          </>
+          
+        ) }
+
+
       </div>
     </div>
   );
 };
 
-export default MemberShipPage;
+export  default MemberShipPage;
