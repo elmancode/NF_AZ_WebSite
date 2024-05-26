@@ -4,27 +4,19 @@ import MemberShipAboutPage from "../../components/memberShip/memberShipAboutText
 import MemberShipForm from "../../components/memberShip/memberShipForm";
 import SponsorMemberShipForm from "../../components/memberShip/sponsorMemberShipForm";
 
-export const useReading = () => {
-  const [reading, setReading] = useState(false);
-
-  const handleReading = () => {
-    setReading(!reading);
-    window.scrollTo({ top: 100, left: 100, behavior: "smooth" });
-  };
-
-  return [reading, handleReading];
-};
-
 const MemberShipPage = () => {
-  const [reading, handleReading] = useReading()
+  const [reading, setReading] = useState();
 
+  const handleReadingChange = (newValue) => {
+    window.scrollTo({ top: 100, left: 100, behavior: "smooth" });
+    setReading(newValue);
+  };
 
   return (
     <div id="memberShip">
       <div className="container">
         <div className="headText">
           <h1>Təbiət Dostları - Üzvlük qeydiyyat forması</h1>
-
           <h4>
             Ətraflı məlumat üçün suallarınızı{" "}
             <a href="mailto:membership@naturefriendsazerbaijan.org">
@@ -34,34 +26,42 @@ const MemberShipPage = () => {
           </h4>
         </div>
 
-        {reading ? (
+        {reading === "sponsor" ? (
+          <>
+            <p className="sponsorAboutText">
+              Dəyərli dost! Bu səhifədəsinizsə demək ki, Təbiət Dostlarına
+              sponsor (fiziki və ya hüquqi şəxs) olaraq dəstək olmaq
+              istəyirsiniz. Düşünürük ki, artıq təşkilatın məqsəd, vəzifələri və
+              fəaliyyətləri ilə tanışsınız. Bu səbəbdən aşağıdaki formu
+              doldurmanız rica olunur. Qeydiyyat formu doldurdaq sonra, ödəniş
+              üçün Təbiət Dostlarının əməkdaşları sizinlə əlaqə saxlayacaqlar.
+            </p>
+            <SponsorMemberShipForm />
+            <div className="buttons">
+              <button onClick={() => handleReadingChange(false)}>Geri</button>
+            </div>
+          </>
+        ) : reading == "form" ? (
           <>
             <MemberShipForm />
             <div className="buttons">
-              <button onClick={handleReading}>Geri</button>
+              <button onClick={() => handleReadingChange(false)}>Geri</button>
             </div>
           </>
-        ) : reading == "sponsor" ? (
-          <>
-            <MemberShipAboutPage />
-            <button onClick={handleReading} className="handleReading">
-              Razıyam
-            </button>
-          </>
         ) : (
-<>
-            <MemberShipAboutPage />
-            <button onClick={handleReading} className="handleReading">
+          <>
+            <MemberShipAboutPage setReading={handleReadingChange} />
+            <button
+              onClick={() => handleReadingChange("form")}
+              className="handleReading"
+            >
               Razıyam
             </button>
           </>
-          
-        ) }
-
-
+        )}
       </div>
     </div>
   );
 };
 
-export  default MemberShipPage;
+export default MemberShipPage;

@@ -49,9 +49,10 @@ const SponsorMemberShipForm = () => {
       setLoading(false);
     }
   };
+
   return (
-    <div id="sponsorMemberShipForm">
-      <div className="container">
+    <div id="memberShipForm">
+      <div className="content">
         <Form
           labelCol={{
             span: 0,
@@ -64,15 +65,6 @@ const SponsorMemberShipForm = () => {
             maxWidth: 800,
           }}
         >
-          <p>
-            Dəyərli dost! Bu səhifədəsinizsə demək ki, Təbiət Dostlarına sponsor
-            (fiziki və ya hüquqi şəxs) olaraq dəstək olmaq istəyirsiniz.
-            Düşünürük ki, artıq təşkilatın məqsəd, vəzifələri və fəaliyyətləri
-            ilə tanışsınız. Bu səbəbdən aşağıdaki formu doldurmanız rica olunur.
-            Qeydiyyat formu doldurdaq sonra, ödəniş üçün Təbiət Dostlarının
-            əməkdaşları sizinlə əlaqə saxlayacaqlar.
-          </p>
-
           {/* ad soyad */}
           <Form.Item>
             <p>

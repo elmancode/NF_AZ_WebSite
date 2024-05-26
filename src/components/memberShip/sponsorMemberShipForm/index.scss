@@ -1,32 +1,16 @@
-#sponsorMemberShipForm {
-    background-image: url('https://images.unsplash.com/photo-1517824806704-9040b037703b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom center;
-    background-attachment: fixed;
-    z-index: 2;
-    padding: 200px 0 0px 0;
-
-    .container {
-        max-width: 1000px;
+#memberShip {
+    .sponsorAboutText {
         background-color: white;
-        padding: 50px 0;
-        border-radius: 10px;
+        text-align: center;
+        padding: 60px 10px 0 10px;
+        margin: 0 20px 0 20px;
 
-        span {
-            color: red;
+        @media only screen and (max-width: 800px) {
+            font-size: 14px;
         }
 
-        button {
-            background-color: #24a64a;
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 30px 0 0 0;
+        @media only screen and (max-width: 500px) {
+            margin: 0 10px 0 10px;
         }
     }
 }

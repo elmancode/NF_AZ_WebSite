@@ -1,29 +1,25 @@
 import React, { useEffect } from "react";
 import "./index.scss";
-import { useReading } from "../../../pages/memberShip"
 
-const MemberShipAboutPage = () => {
+const MemberShipAboutPage = ({ setReading }) => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
-  const [reading, handleReading] = useReading(); 
   const handleClick = () => {
-    handleReading();
     setReading("sponsor");
   };
-
 
   return (
     <div id="memberShipAbout">
       <p>
-        Dəyərli dost! 
+        Dəyərli dost!
         <br />
         <br />
-        Qeydiyyat formunu doldurmamışdan öncə, təşkilatın məqsəd,
-        vəzifələri o cümlədən üzvlərin hüquq və vəzifələri ilə tanış ola və
-        razı olduqdan sonra aşağıda qeyd edilən RAZIYAM düyməsini tıklayaraq
-        qeydiyyat formuna keçid edə bilərsiniz. <br />
+        Qeydiyyat formunu doldurmamışdan öncə, təşkilatın məqsəd, vəzifələri o
+        cümlədən üzvlərin hüquq və vəzifələri ilə tanış ola və razı olduqdan
+        sonra aşağıda qeyd edilən RAZIYAM düyməsini tıklayaraq qeydiyyat formuna
+        keçid edə bilərsiniz. <br />
         <br />
         <b>1. Təbiət Dostları kimdir?</b> <br />
         <br />
@@ -70,12 +66,12 @@ const MemberShipAboutPage = () => {
         4.3. Təşkilatın xarici və daxili siyasətinə zidd davranış edildiyi
         halda; <br /> <br />
         <b>5. Təbiət Dostlarının üzvlük proseduru və növləri</b> <br /> <br />{" "}
-        <b>5.1. Prosedur:</b> Yaşı 16 və yuxarı olan şəxslər Təbiət
-        Dostları təşkilatına üzvlük üçün müraciət edə bilər. Müraciətçi
-        qeydiyyat formunu doldurduqdan və üzvlük haqqını ödədikdən sonra
-        Üzvlərlə iş Komitəsinin qərarı ilə müraciətçi növbəti ayın 1-dən
-        etibarən rəsmi üzv olaraq qeydiyata alınır. Üzvlük 12 ay müddətində
-        qüvvədə qalır. <br /> <b>5.2. Üzvlük növləri:</b> <br />
+        <b>5.1. Prosedur:</b> Yaşı 16 və yuxarı olan şəxslər Təbiət Dostları
+        təşkilatına üzvlük üçün müraciət edə bilər. Müraciətçi qeydiyyat formunu
+        doldurduqdan və üzvlük haqqını ödədikdən sonra Üzvlərlə iş Komitəsinin
+        qərarı ilə müraciətçi növbəti ayın 1-dən etibarən rəsmi üzv olaraq
+        qeydiyata alınır. Üzvlük 12 ay müddətində qüvvədə qalır. <br />{" "}
+        <b>5.2. Üzvlük növləri:</b> <br />
         <b>• Fərdi üzv</b> individual olaraq üzv olur və yerli və beynəlxalq
         tədbirlərdə iştirakçı qismində qatılmaq hüququ vardır. <br />{" "}
         <b>• Ailəvi üzv</b> ailəvi üzv olmaq istəyənlər üçündür. Təbiət
@@ -101,13 +97,17 @@ const MemberShipAboutPage = () => {
         <br />* Tələbə bileti təşkilata təqdim edilməlidir. <br />
         <br />
         <b>** QEYD:</b> Sponsor-Üzv olaraq Təbiət Doslarına dəstək olmaq
-        istəyənlər bu <a onClick={handleClick} style={{color:"blue"}} >linkdən</a> qeydiyyat formuna keçid edə bilərlər.
+        istəyənlər bu{" "}
+        <a onClick={handleClick} style={{ color: "blue" }}>
+          linkdən
+        </a>{" "}
+        qeydiyyat formuna keçid edə bilərlər.
         <br />
         <br />
-        <b>!!! TƏLƏSİN - SON GÜN 30 İYUN !!!</b> <br /> 30 iyun tarixinə kimi üzv
-        olan şəxslər 30% endirim əldə etmiş olacaqlar. Belə ki, Tələbələr - 21 ₼
-        , Fərdi üzvlük - 28₼ , Fərdi-Partyor üzv - 63 ₼ . Ailəvi üzvlük isə - 49
-        ₼ , Ailəvi-Partyor üzv - 70₼ təşkil edəcək.
+        <b>!!! TƏLƏSİN - SON GÜN 30 İYUN !!!</b> <br /> 30 iyun tarixinə kimi
+        üzv olan şəxslər 30% endirim əldə etmiş olacaqlar. Belə ki, Tələbələr -
+        21 ₼ , Fərdi üzvlük - 28₼ , Fərdi-Partyor üzv - 63 ₼ . Ailəvi üzvlük isə
+        - 49 ₼ , Ailəvi-Partyor üzv - 70₼ təşkil edəcək.
       </p>
     </div>
   );

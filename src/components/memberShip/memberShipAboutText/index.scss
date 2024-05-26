@@ -6,6 +6,10 @@
     text-align: justify;
     margin: 0 20px;
 
+    a {
+        cursor: pointer;
+    }
+
     @media only screen and (max-width: 700px) {
         padding: 40px 20px;
 
