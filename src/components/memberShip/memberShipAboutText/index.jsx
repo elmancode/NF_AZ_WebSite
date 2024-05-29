@@ -88,13 +88,13 @@ const MemberShipAboutPage = ({ setReading }) => {
         alırlar. Həmçinin partnyor üzvün əldə etdiyi hüquqlara əldə etmiş
         olurlar. <br />
         <br /> 5.3. Üzvlük haqları üçün seçimlər: <br />
-        <b>Fərdi üzvlük:</b> Tələbə* 30 ₼, Fərdi üzvlük 40 ₼.
+        <b>Fərdi üzvlük:</b> 40₼ (Tələbə* 30₼).
         <br />
-        <b>Ailəvi üzvlük:</b> Ailəvi üzvlük 70 ₼.
+        <b>Ailəvi üzvlük:</b> 70₼.
         <br />
-        <b>Partnyor üzv: </b> 90 ₼.
+        <b>Partnyor üzv: </b> 90₼.
         <br />
-        <b>Sponsorluq:</b> Sponsor-üzv 500 ₼ + <br />
+        <b>Sponsor üzv:</b>  500₼ + <br />
         <br />* Tələbə bileti təşkilata təqdim edilməlidir. <br />
         <br />
         <b>** QEYD:</b> Sponsor-Üzv olaraq Təbiət Doslarına dəstək olmaq
@@ -107,13 +107,13 @@ const MemberShipAboutPage = ({ setReading }) => {
         <br />
         <b>!!! TƏLƏSİN - SON GÜN 30 İYUN !!!</b>
         <br /> <br />
-        30 iyun tarixinə kimi üzv olan şəxslər 30% endirim əldə etmiş olacaqlar.
+        30 iyun tarixinə kimi üzv olan şəxslər <ins>30% </ins> endirim əldə etmiş olacaqlar.
         <br /> <br />
-        Fərdi üzvlük <del>40₼</del>  deyil 28₼ (Tələbə <del>30₼</del> deyil 21₼ )
+        Fərdi üzvlük <del>40₼</del>  <ins>28₼</ins>  (Tələbə <del>30₼</del> <ins>21₼</ins>  )
         <br />
-        Ailəvi üzvlük <del>70₼</del> deyil 49₼
+        Ailəvi üzvlük <del>70₼</del> <ins>49₼</ins>
         <br />
-        Partnyor üzv <del>90₼</del> deyil 63₼
+        Partnyor üzv <del>90₼</del>  <ins>63₼</ins> 
       </p>
     </div>
   );

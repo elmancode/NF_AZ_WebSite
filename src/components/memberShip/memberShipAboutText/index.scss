@@ -6,6 +6,13 @@
     text-align: justify;
     margin: 0 20px;
 
+    del{
+        text-decoration: line-through;
+    }
+    ins{
+        color: red;
+    }
+
     a {
         cursor: pointer;
     }

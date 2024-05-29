@@ -637,7 +637,22 @@ const MemberShipForm = () => {
                     <p className="errorText">{validationError?.error}</p>
                   ) : null}
                 </div>
+
+  
               </div>
+
+            </Form.Item>
+
+            <Form.Item>
+            <div>
+                  <p>
+                    Üzvlük haqqı <b> 5411 2498 1243 7882</b> nömrəli karta transfer
+                    edildi <span>*</span> 
+                    <Checkbox style={{margin: "10px", }}>
+
+                    </Checkbox>
+                  </p>
+                </div>
             </Form.Item>
 
             <Form.Item>
