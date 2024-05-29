@@ -88,10 +88,11 @@ const MemberShipAboutPage = ({ setReading }) => {
         alırlar. Həmçinin partnyor üzvün əldə etdiyi hüquqlara əldə etmiş
         olurlar. <br />
         <br /> 5.3. Üzvlük haqları üçün seçimlər: <br />
-        <b>Fərdi üzvlük:</b> Tələbə* 30 ₼, Fərdi üzvlük 40 ₼, Fərdi-partyor üzv
-        90 ₼.
+        <b>Fərdi üzvlük:</b> Tələbə* 30 ₼, Fərdi üzvlük 40 ₼.
         <br />
-        <b>Ailəvi üzvlük:</b> Ailəvi üzvlük 70 ₼, Ailəvi-partyor üzv ₼ 100{" "}
+        <b>Ailəvi üzvlük:</b> Ailəvi üzvlük 70 ₼.
+        <br />
+        <b>Partnyor üzv: </b> 90 ₼.
         <br />
         <b>Sponsorluq:</b> Sponsor-üzv 500 ₼ + <br />
         <br />* Tələbə bileti təşkilata təqdim edilməlidir. <br />
@@ -104,10 +105,15 @@ const MemberShipAboutPage = ({ setReading }) => {
         qeydiyyat formuna keçid edə bilərlər.
         <br />
         <br />
-        <b>!!! TƏLƏSİN - SON GÜN 30 İYUN !!!</b> <br /> 30 iyun tarixinə kimi
-        üzv olan şəxslər 30% endirim əldə etmiş olacaqlar. Belə ki, Tələbələr -
-        21 ₼ , Fərdi üzvlük - 28₼ , Fərdi-Partyor üzv - 63 ₼ . Ailəvi üzvlük isə
-        - 49 ₼ , Ailəvi-Partyor üzv - 70₼ təşkil edəcək.
+        <b>!!! TƏLƏSİN - SON GÜN 30 İYUN !!!</b>
+        <br /> <br />
+        30 iyun tarixinə kimi üzv olan şəxslər 30% endirim əldə etmiş olacaqlar.
+        <br /> <br />
+        Fərdi üzvlük <del>40₼</del>  deyil 28₼ (Tələbə <del>30₼</del> deyil 21₼ )
+        <br />
+        Ailəvi üzvlük <del>70₼</del> deyil 49₼
+        <br />
+        Partnyor üzv <del>90₼</del> deyil 63₼
       </p>
     </div>
   );
