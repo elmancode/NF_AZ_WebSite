@@ -94,7 +94,7 @@ const MemberShipAboutPage = ({ setReading }) => {
         <br />
         <b>Partnyor üzv: </b> 90₼.
         <br />
-        <b>Sponsor üzv:</b>  500₼ + <br />
+        <b>Sponsor üzv:</b> 500₼ + <br />
         <br />* Tələbə bileti təşkilata təqdim edilməlidir. <br />
         <br />
         <b>** QEYD:</b> Sponsor-Üzv olaraq Təbiət Doslarına dəstək olmaq
@@ -107,13 +107,20 @@ const MemberShipAboutPage = ({ setReading }) => {
         <br />
         <b>!!! TƏLƏSİN - SON GÜN 30 İYUN !!!</b>
         <br /> <br />
-        30 iyun tarixinə kimi üzv olan şəxslər <ins>30% </ins> endirim əldə etmiş olacaqlar.
+        30 iyun tarixinə kimi üzv olan şəxslər <ins>30% </ins> endirim əldə
+        etmiş olacaqlar.
         <br /> <br />
-        Fərdi üzvlük <del>40₼</del>  <ins>28₼</ins>  (Tələbə <del>30₼</del> <ins>21₼</ins>  )
+        Fərdi üzvlük <del>40₼</del> <ins>28₼</ins> (Tələbə <del>30₼</del>{" "}
+        <ins>21₼</ins> )
         <br />
         Ailəvi üzvlük <del>70₼</del> <ins>49₼</ins>
         <br />
-        Partnyor üzv <del>90₼</del>  <ins>63₼</ins> 
+        Partnyor üzv <del>90₼</del> <ins>63₼</ins>
+      </p>
+      <br />
+      <p>
+        Üzvlük haqqını <b>5411 2498 1243 7882</b> kart nömrəsinə transfer
+        etməyinizi xahiş edirik.
       </p>
     </div>
   );

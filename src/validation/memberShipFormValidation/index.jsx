@@ -79,5 +79,10 @@ export const memberShipFormValidation = (data) => {
     return { error: "Email abunəliyi seçilməyib", index: 10 };
   }
 
+  if (!data.paymentReceipt) {
+    console.log(data.paymentReceipt);
+    return { error: "Ödəniş qəbzi əlavə edilməyib", index: 11 };
+  }
+
   return null;
 };

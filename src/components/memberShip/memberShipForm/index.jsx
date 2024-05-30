@@ -40,6 +40,8 @@ const MemberShipForm = () => {
   const [backOfLicence, setBackOfLicence] = useState(null);
   const [emailSubscribtion, setEmailSubscribtion] = useState(null);
   const [memberType, setMemberType] = useState(null);
+  const [paymentReceipt, setPaymentReceipt] = useState(null);
+  const [studentCard, setStudentCard] = useState(null);
 
   const [validationError, setValidationError] = useState(null);
 
@@ -92,6 +94,10 @@ const MemberShipForm = () => {
 
       if (type === "front") {
         setFrontOfLicence(uploadedFileUrl);
+      } else if (type === "paymentReceipt") {
+        setPaymentReceipt(uploadedFileUrl);
+      } else if (type === "studentCard") {
+        setStudentCard(uploadedFileUrl);
       } else {
         setBackOfLicence(uploadedFileUrl);
       }
@@ -119,12 +125,13 @@ const MemberShipForm = () => {
         favoriteColor: favoriteColor,
         backOfLicence: backOfLicence,
         frontOfLicence: frontOfLicence,
+        paymentReceipt: paymentReceipt,
         emailSubscription: emailSubscribtion,
+        studentCard: studentCard,
       };
 
       const validationError = memberShipFormValidation(memberShipData);
       if (validationError) {
-        console.error(validationError);
         setValidationError(validationError);
         return;
       }
@@ -134,7 +141,6 @@ const MemberShipForm = () => {
         memberShipData
       );
 
-      console.log(data);
       setLoading(false);
       setResult(true);
     } catch (error) {
@@ -142,8 +148,6 @@ const MemberShipForm = () => {
       setLoading(false);
     }
   };
-
-  console.log(backOfLicence);
 
   return (
     <div id="memberShipForm">
@@ -571,9 +575,8 @@ const MemberShipForm = () => {
             {/* vesiqe sekilleri */}
             <Form.Item valuePropName="fileList" getValueFromEvent={normFile}>
               <p>
-                Qeydiyyatı tamamlamaq üçün şəxsiyyət vəsiqənizin hər iki üzünü
-                ya şəkil (məs: .png, .jpg) ya sənəd (məs: .pdf) formatında
-                yükləyin <span>*</span>
+                Şəxsiyyət vəsiqənizin hər iki üzünü ya şəkil (məs: .png, .jpg)
+                ya sənəd (məs: .pdf) formatında yükləyin <span>*</span>
               </p>
 
               <div className="uploadsInput">
@@ -661,11 +664,94 @@ const MemberShipForm = () => {
 
             <Form.Item>
               <div>
+                <p>Tələbə biletinizi yükləyin (əgər tələbəsinizsə) </p>
+
+                {studentCard ? (
+                  <Image
+                    src={`https://nfazcloudrailway.up.railway.app/uploads/${studentCard}`}
+                    alt={studentCard}
+                    style={{ width: "150px" }}
+                  />
+                ) : (
+                  <div>
+                    <Upload
+                      maxCount={1}
+                      action={`https://nfazcloudrailway.up.railway.app/upload`}
+                      listType="picture-card"
+                      name="file"
+                      onChange={(info) => {
+                        handleFileChange(info, "studentCard");
+                      }}
+                    >
+                      <button
+                        style={{
+                          border: 0,
+                          background: "none",
+                        }}
+                        type="button"
+                      >
+                        <PlusOutlined />
+                        <div
+                          style={{
+                            marginTop: 8,
+                          }}
+                        >
+                          tələbə bileti
+                        </div>
+                      </button>
+                    </Upload>
+                  </div>
+                )}
+              </div>
+            </Form.Item>
+
+            <Form.Item>
+              <div>
                 <p>
-                  Üzvlük haqqı <b>5411 2498 1243 7882</b> nömrəli karta transfer
-                  edildi <span>*</span>
-                  <Checkbox style={{ margin: "10px" }}></Checkbox>
+                  Qeydiyyatı tamamlamaq üçün üzvlük haqqını{" "}
+                  <b>5411 2498 1243 7882</b> nömrəli karta transfer etdikdən
+                  sonra qəbzi yükləyin <span style={{ color: "red" }}>*</span>
                 </p>
+
+                {paymentReceipt ? (
+                  <Image
+                    src={`https://nfazcloudrailway.up.railway.app/uploads/${paymentReceipt}`}
+                    alt={paymentReceipt}
+                    style={{ width: "150px" }}
+                  />
+                ) : (
+                  <div>
+                    <Upload
+                      maxCount={1}
+                      action={`https://nfazcloudrailway.up.railway.app/upload`}
+                      listType="picture-card"
+                      name="file"
+                      onChange={(info) => {
+                        handleFileChange(info, "paymentReceipt");
+                      }}
+                    >
+                      <button
+                        style={{
+                          border: 0,
+                          background: "none",
+                        }}
+                        type="button"
+                      >
+                        <PlusOutlined />
+                        <div
+                          style={{
+                            marginTop: 8,
+                          }}
+                        >
+                          ödəniş qəbzi
+                        </div>
+                      </button>
+                    </Upload>
+                    {validationError?.index === 11 ? (
+                      <p className="errorText">{validationError?.error}</p>
+                    ) : null}
+                  </div>
+                )}
               </div>
             </Form.Item>
 
