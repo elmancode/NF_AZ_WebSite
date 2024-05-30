@@ -5,6 +5,7 @@ import {
   Checkbox,
   DatePicker,
   Form,
+  Image,
   Input,
   Radio,
   Result,
@@ -141,6 +142,8 @@ const MemberShipForm = () => {
       setLoading(false);
     }
   };
+
+  console.log(backOfLicence);
 
   return (
     <div id="memberShipForm">
@@ -574,85 +577,96 @@ const MemberShipForm = () => {
               </p>
 
               <div className="uploadsInput">
-                <div>
-                  <Upload
-                    maxCount={1}
-                    action={`https://nfazcloudrailway.up.railway.app/upload`}
-                    listType="picture-card"
-                    name="file"
-                    onChange={(info) => {
-                      handleFileChange(info, "back");
-                    }}
-                  >
-                    <button
-                      style={{
-                        border: 0,
-                        background: "none",
+                {backOfLicence ? (
+                  <Image
+                    src={`https://nfazcloudrailway.up.railway.app/uploads/${backOfLicence}`}
+                    alt={backOfLicence}
+                    style={{ width: "150px" }}
+                  />
+                ) : (
+                  <div>
+                    <Upload
+                      maxCount={1}
+                      action={`https://nfazcloudrailway.up.railway.app/upload`}
+                      listType="picture-card"
+                      name="file"
+                      onChange={(info) => {
+                        handleFileChange(info, "back");
                       }}
-                      type="button"
                     >
-                      <PlusOutlined />
-                      <div
+                      <button
                         style={{
-                          marginTop: 8,
+                          border: 0,
+                          background: "none",
                         }}
+                        type="button"
                       >
-                        arxa üzü
-                      </div>
-                    </button>
-                  </Upload>
-                  {validationError?.index === 8 ? (
-                    <p className="errorText">{validationError?.error}</p>
-                  ) : null}
-                </div>
+                        <PlusOutlined />
+                        <div
+                          style={{
+                            marginTop: 8,
+                          }}
+                        >
+                          arxa üzü
+                        </div>
+                      </button>
+                    </Upload>
+                    {validationError?.index === 8 ? (
+                      <p className="errorText">{validationError?.error}</p>
+                    ) : null}
+                  </div>
+                )}
 
-                <div>
-                  <Upload
-                    maxCount={1}
-                    action={`https://nfazcloudrailway.up.railway.app/upload`}
-                    listType="picture-card"
-                    name="file"
-                    onChange={(info) => {
-                      handleFileChange(info, "front");
-                    }}
-                  >
-                    <button
-                      style={{
-                        border: 0,
-                        background: "none",
+                {frontOfLicence ? (
+                  <Image
+                    src={`https://nfazcloudrailway.up.railway.app/uploads/${frontOfLicence}`}
+                    alt={backOfLicence}
+                    style={{ width: "150px" }}
+                  />
+                ) : (
+                  <div>
+                    <Upload
+                      maxCount={1}
+                      action={`https://nfazcloudrailway.up.railway.app/upload`}
+                      listType="picture-card"
+                      name="file"
+                      onChange={(info) => {
+                        handleFileChange(info, "front");
                       }}
-                      type="button"
                     >
-                      <PlusOutlined />
-                      <div
+                      <button
                         style={{
-                          marginTop: 8,
+                          border: 0,
+                          background: "none",
                         }}
+                        type="button"
                       >
-                        ön üzü
-                      </div>
-                    </button>
-                  </Upload>
-                  {validationError?.index === 9 ? (
-                    <p className="errorText">{validationError?.error}</p>
-                  ) : null}
-                </div>
-
-  
+                        <PlusOutlined />
+                        <div
+                          style={{
+                            marginTop: 8,
+                          }}
+                        >
+                          ön üzü
+                        </div>
+                      </button>
+                    </Upload>
+                    {validationError?.index === 9 ? (
+                      <p className="errorText">{validationError?.error}</p>
+                    ) : null}
+                  </div>
+                )}
               </div>
-
             </Form.Item>
 
             <Form.Item>
-            <div>
-                  <p>
-                    Üzvlük haqqı <b> 5411 2498 1243 7882</b> nömrəli karta transfer
-                    edildi <span>*</span> 
-                    <Checkbox style={{margin: "10px", }}>
-
-                    </Checkbox>
-                  </p>
-                </div>
+              <div>
+                <p>
+                  Üzvlük haqqı <b>5411 2498 1243 7882</b> nömrəli karta transfer
+                  edildi <span>*</span>
+                  <Checkbox style={{ margin: "10px" }}></Checkbox>
+                </p>
+              </div>
             </Form.Item>
 
             <Form.Item>
