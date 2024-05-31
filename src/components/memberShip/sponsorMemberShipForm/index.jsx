@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./index.scss";
-import { Form, Input, Spin, Result } from "antd";
+import { Form, Input, Spin, Result, Radio, Space } from "antd";
 import { BASE_URL } from "../../../constants";
 import axios from "axios";
 import { sponsorMemberShipFormValidation } from "../../../validation/sponsorMemberFormValidation";
@@ -16,6 +16,11 @@ const SponsorMemberShipForm = () => {
 
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(false);
+  const [radioValue, setRadioValue] = useState(null);
+
+  const onChange = (e) => {
+    setRadioValue(e.target.value);
+  };
 
   const formItemLayoutWithOutLabel = {
     wrapperCol: {
@@ -38,13 +43,13 @@ const SponsorMemberShipForm = () => {
         phoneNumber: +phoneNumber,
         city: city,
         juridicalPerson: juridicalPerson,
+        radioValue: radioValue,
       };
 
       const validationError = sponsorMemberShipFormValidation(
         sponsorMemberShipData
       );
       if (validationError) {
-        console.error(validationError);
         setValidationError(validationError);
         return;
       }
@@ -149,6 +154,67 @@ const SponsorMemberShipForm = () => {
               <Input onChange={(e) => setJuridicalPerson(e?.target.value)} />
 
               {validationError?.index === 4 ? (
+                <p className="errorText">{validationError?.error}</p>
+              ) : null}
+            </Form.Item>
+
+            {/* Ayırdığınız vəsait təşkilatın hansı fəaliyyət istiqamətlərinə yönəlməsini istərdiniz? */}
+            <Form.Item>
+              <p>
+                Ayırdığınız vəsait təşkilatın hansı fəaliyyət istiqamətlərinə
+                yönəlməsini istərdiniz? <span>*</span>
+              </p>
+
+              <Radio.Group onChange={onChange} value={radioValue}>
+                <Space direction="vertical">
+                  <Radio
+                    value={
+                      "Ekoloji təhsil və maarifləndirici tədbirlər: Seminarlar, konfranslar, məktəblilər və tələbələr üçün proqramlar, ictimai tədbirlər (“Green Drinks” və s);"
+                    }
+                  >
+                    Ekoloji təhsil və maarifləndirici tədbirlər: Seminarlar,
+                    konfranslar, məktəblilər və tələbələr üçün proqramlar,
+                    ictimai tədbirlər (“Green Drinks” və s);
+                  </Radio>
+                  <Radio
+                    value={
+                      "Təbiət gəzintiləri: Eko-Turlar, Təbiət gəzintiləri, Quşların Müşahidə Turları, Kəmpinq,  illik təbiət festivallar;"
+                    }
+                  >
+                    Təbiət gəzintiləri: Eko-Turlar, Təbiət gəzintiləri, Quşların
+                    Müşahidə Turları, Kəmpinq, illik təbiət festivallar;
+                  </Radio>
+                  <Radio
+                    value={
+                      "Ekoloji nəqliyyatın təbliği və təşviqi: Velo-yürüşlərin təşkili, velo-təlimlər, ekoloji nəqliyyat (“Velosipeçinin Səhəri” və s.);"
+                    }
+                  >
+                    Ekoloji nəqliyyatın təbliği və təşviqi: Velo-yürüşlərin
+                    təşkili, velo-təlimlər, ekoloji nəqliyyat (“Velosipeçinin
+                    Səhəri” və s.);
+                  </Radio>
+                  <Radio
+                    value={
+                      "Yaşıl-Tech və onlayn təşəbbüslər: Sosial media kampaniyaları, vebinarlar, alternativ enerjinin təbliği və təşviqi proqramları;"
+                    }
+                  >
+                    Yaşıl-Tech və onlayn təşəbbüslər: Sosial media
+                    kampaniyaları, vebinarlar, alternativ enerjinin təbliği və
+                    təşviqi proqramları;
+                  </Radio>
+                  <Radio
+                    value={
+                      "Ekoloji lobbiçilik: Sorğular, Petisiya kampaniyaları, Plastik çirklənməsi və bərpa olunan enerjinin lobbiçiliyi, hökumət qurumları ilə əməkdaşlıq və yaşıl siyasət;"
+                    }
+                  >
+                    Ekoloji lobbiçilik: Sorğular, Petisiya kampaniyaları,
+                    Plastik çirklənməsi və bərpa olunan enerjinin lobbiçiliyi,
+                    hökumət qurumları ilə əməkdaşlıq və yaşıl siyasət;
+                  </Radio>
+                </Space>
+              </Radio.Group>
+
+              {validationError?.index === 5 ? (
                 <p className="errorText">{validationError?.error}</p>
               ) : null}
             </Form.Item>

@@ -31,5 +31,9 @@ export const sponsorMemberShipFormValidation = (data) => {
     return { error: "Hüquqi şəxs 2 simvoldan kiçikdir.", index: 4 };
   }
 
+  if (!data.radioValue || data.radioValue.length < 2) {
+    return { error: "Bu sual cavab tələb edir", index: 5 };
+  }
+
   return null;
 };
