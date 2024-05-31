@@ -41,7 +41,7 @@ const MemberShipForm = () => {
   const [emailSubscribtion, setEmailSubscribtion] = useState(null);
   const [memberType, setMemberType] = useState(null);
   const [paymentReceipt, setPaymentReceipt] = useState(null);
-  const [studentCard, setStudentCard] = useState(null);
+  const [studentCard, setStudentCard] = useState("");
 
   const [validationError, setValidationError] = useState(null);
 
