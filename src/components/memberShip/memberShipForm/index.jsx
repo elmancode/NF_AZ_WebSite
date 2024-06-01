@@ -48,7 +48,7 @@ const MemberShipForm = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const [result, setResult] = useState(true);
+  const [result, setResult] = useState(false);
 
   const handleLanguageChange = (selectedLanguage, level, checked) => {
     if (checked) {
