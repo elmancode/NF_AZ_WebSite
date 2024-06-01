@@ -130,6 +130,7 @@
 
     @media only screen and (max-width: 600px) {
         .content {
+            padding: 0 0 0 0 !important;
 
             .ant-form-horizontal {
                 width: 90%;
@@ -146,6 +147,16 @@
                 .header {
                     gap: 50px;
                 }
+            }
+        }
+
+        .resultContent {
+            a {
+                font-size: 15px !important;
+            }
+
+            p {
+                font-size: 16px !important;
             }
         }
     }
@@ -180,6 +191,12 @@
                 }
             }
         }
+
+        .resultContent {
+            img {
+                width: 250px !important;
+            }
+        }
     }
 
     @media only screen and (max-width: 412px) {
@@ -205,6 +222,16 @@
                 .header {
                     gap: 40px;
                 }
+            }
+        }
+
+        .resultContent {
+            a {
+                font-size: 12px !important;
+            }
+
+            p {
+                font-size: 16px !important;
             }
         }
     }

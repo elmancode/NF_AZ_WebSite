@@ -16,6 +16,7 @@ import {
 import { PlusOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { BASE_URL } from "../../../constants";
+import logo from "../../../assets/td logo 1.png";
 import { memberShipFormValidation } from "../../../validation/memberShipFormValidation";
 
 const MemberShipForm = () => {
@@ -47,7 +48,7 @@ const MemberShipForm = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const [result, setResult] = useState(false);
+  const [result, setResult] = useState(true);
 
   const handleLanguageChange = (selectedLanguage, level, checked) => {
     if (checked) {
@@ -155,8 +156,50 @@ const MemberShipForm = () => {
         {result ? (
           <Result
             status="success"
-            title="Qeydiyyatınız Uğurla Tamamlandı!"
-            subTitle="Dəyərli Təbiət Dostu, qısa zamanda sizə geri dönüş edəcəyik"
+            title={
+              <div className="resultContent">
+                <p style={{ fontSize: "25px" }}>TƏŞƏKKÜR EDİRİK!</p>
+                <p style={{ fontSize: "16px" }}>müraciətiniz qeydə alındı!</p>
+                <p
+                  style={{
+                    fontSize: "18px",
+                    maxWidth: "700px",
+                    margin: "0 auto",
+                    marginBottom: "15px",
+                  }}
+                >
+                  Global fəaliyyətlərimizə lokal dəstəklədiyiniz üçün sizə
+                  təşəkkür edirik. İstər üzvlük haqqı ilə, istərsə də fiziki
+                  şəkildə qatılaraq etdiyiniz töhvəniz{" "}
+                  <span style={{ color: "green", fontWeight: 700 }}>
+                    Təbiət Dostları
+                  </span>
+                  nın missiyasına böyük dəstəkdir.
+                </p>
+                <p style={{ fontSize: "18px" }}>
+                  Məlumat üçün bildirək ki, müraciniz cari ayın sonuna kimi
+                  baxıldıqdan sonra Təşkilatın rəsmi üzvlük siyahısına əlavə
+                  ediləcək və üzvlüyünüz qarşıdan gələn ayın 1-dən etibarən 12
+                  ay müddətinə qüvvədə qalacaqdır.
+                </p>
+                <p style={{ fontSize: "18px" }}>
+                  Sizləri aramızda görmək ümidi ilə,
+                  <br />{" "}
+                  <span style={{ color: "green", fontWeight: 700 }}>
+                    Təbiət Dostları
+                  </span>
+                  , Üzvlərlə İş Komitəsi <br />
+                  <a href="mailto:membership@naturefriendsazerbaijan.org">
+                    membership@naturefriendsazerbaijan.org
+                  </a>
+                </p>
+              </div>
+            }
+            subTitle={
+              <div className="resultContent">
+                <img src={logo} style={{ width: "300px", marginTop: "40px" }} />
+              </div>
+            }
           />
         ) : (
           <Form
